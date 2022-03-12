@@ -18,7 +18,8 @@ namespace feature_app
     {
         int count = 0;   // count the number input
         string[] output = new string[10] {"x","x","x","x","x","x","x","x","x","x"};   // the prediction output from python
-
+        string[] charateristic = new string[3] { "0", "0", "0" };
+        string[] para_sug = new string[6] { "0", "0", "0", "0", "0", "0" };  // parameter suggesion
         public Form1()
         {
             InitializeComponent();
@@ -53,7 +54,9 @@ namespace feature_app
             lgb_pcv_output_label.Text = output[5];
             xgb_ten_output_label.Text = output[6];
             cat_ten_output_label.Text = output[7];
-            lgb_ten_output_label.Text = output[8];
+            lgb_ten_output_label.Text = "x";  // x
+        
+            
         }
         public void RunPythonScript(string sArgName, string args = "", params string[] teps)
         {
@@ -106,6 +109,25 @@ namespace feature_app
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void sug_bt_Click(object sender, EventArgs e)
+        {
+            string[] strArr = new string[5];//引數列表
+            if (sug_bt_1.Checked)
+            {
+                strArr[0] = "1";
+            }
+            string sArguments = @"parameter_sug.py";//這裡是python的檔名字
+            RunPythonScript(sArguments, "-u", strArr);
+            para_sug = output[1].Split(' ');    // split "5" parameter and store at para_sug array.
+            sug_label_1.Text = para_sug[0];
+            sug_label_2.Text = para_sug[1];
+            sug_label_3.Text = para_sug[2];
+            sug_label_4.Text = para_sug[3];
+            sug_label_5.Text = para_sug[4];
+
 
         }
     }

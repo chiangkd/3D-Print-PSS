@@ -67,9 +67,26 @@ namespace feature_app
             this.pcv_sug_text = new System.Windows.Forms.TextBox();
             this.ten_sug_text = new System.Windows.Forms.TextBox();
             this.function2_label = new System.Windows.Forms.Label();
+            this.sug_bt_1 = new System.Windows.Forms.RadioButton();
+            this.sug_bt_2 = new System.Windows.Forms.RadioButton();
+            this.model_select_group = new System.Windows.Forms.GroupBox();
+            this.sugStart_bt = new System.Windows.Forms.Button();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.sug_label_1 = new System.Windows.Forms.Label();
+            this.sug_label_2 = new System.Windows.Forms.Label();
+            this.sug_label_3 = new System.Windows.Forms.Label();
+            this.sug_label_4 = new System.Windows.Forms.Label();
+            this.sug_label_5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.model_select_group.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // Title_label
@@ -214,12 +231,12 @@ namespace feature_app
             // 
             // Pred_bt
             // 
-            this.Pred_bt.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pred_bt.Location = new System.Drawing.Point(318, 394);
+            this.Pred_bt.Font = new System.Drawing.Font("標楷體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Pred_bt.Location = new System.Drawing.Point(593, 77);
             this.Pred_bt.Name = "Pred_bt";
             this.Pred_bt.Size = new System.Drawing.Size(143, 44);
             this.Pred_bt.TabIndex = 7;
-            this.Pred_bt.Text = "Predict";
+            this.Pred_bt.Text = "預估開始";
             this.Pred_bt.UseVisualStyleBackColor = true;
             this.Pred_bt.Click += new System.EventHandler(this.Pred_bt_Click);
             // 
@@ -301,14 +318,14 @@ namespace feature_app
             this.tableLayoutPanel3.Controls.Add(this.ten_label2, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.pcv_label2, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.mu_label2, 0, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(19, 287);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(12, 320);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(366, 101);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(180, 101);
             this.tableLayoutPanel3.TabIndex = 9;
             // 
             // xgb_mu_output_label
@@ -459,7 +476,7 @@ namespace feature_app
             this.mu_label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mu_label2.AutoSize = true;
             this.mu_label2.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.mu_label2.Location = new System.Drawing.Point(62, 29);
+            this.mu_label2.Location = new System.Drawing.Point(16, 29);
             this.mu_label2.Name = "mu_label2";
             this.mu_label2.Size = new System.Drawing.Size(59, 16);
             this.mu_label2.TabIndex = 24;
@@ -470,7 +487,7 @@ namespace feature_app
             this.pcv_label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pcv_label2.AutoSize = true;
             this.pcv_label2.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.pcv_label2.Location = new System.Drawing.Point(71, 53);
+            this.pcv_label2.Location = new System.Drawing.Point(24, 53);
             this.pcv_label2.Name = "pcv_label2";
             this.pcv_label2.Size = new System.Drawing.Size(42, 16);
             this.pcv_label2.TabIndex = 24;
@@ -481,7 +498,7 @@ namespace feature_app
             this.ten_label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ten_label2.AutoSize = true;
             this.ten_label2.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ten_label2.Location = new System.Drawing.Point(54, 78);
+            this.ten_label2.Location = new System.Drawing.Point(7, 78);
             this.ten_label2.Name = "ten_label2";
             this.ten_label2.Size = new System.Drawing.Size(76, 16);
             this.ten_label2.TabIndex = 24;
@@ -490,27 +507,27 @@ namespace feature_app
             // mu_sug_text
             // 
             this.mu_sug_text.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mu_sug_text.Location = new System.Drawing.Point(223, 30);
+            this.mu_sug_text.Location = new System.Drawing.Point(94, 30);
             this.mu_sug_text.Name = "mu_sug_text";
-            this.mu_sug_text.Size = new System.Drawing.Size(100, 22);
+            this.mu_sug_text.Size = new System.Drawing.Size(80, 22);
             this.mu_sug_text.TabIndex = 11;
             this.mu_sug_text.Text = "200";
             // 
             // pcv_sug_text
             // 
             this.pcv_sug_text.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pcv_sug_text.Location = new System.Drawing.Point(223, 54);
+            this.pcv_sug_text.Location = new System.Drawing.Point(94, 54);
             this.pcv_sug_text.Name = "pcv_sug_text";
-            this.pcv_sug_text.Size = new System.Drawing.Size(100, 22);
+            this.pcv_sug_text.Size = new System.Drawing.Size(80, 22);
             this.pcv_sug_text.TabIndex = 11;
             this.pcv_sug_text.Text = "200";
             // 
             // ten_sug_text
             // 
             this.ten_sug_text.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ten_sug_text.Location = new System.Drawing.Point(223, 78);
+            this.ten_sug_text.Location = new System.Drawing.Point(94, 78);
             this.ten_sug_text.Name = "ten_sug_text";
-            this.ten_sug_text.Size = new System.Drawing.Size(100, 22);
+            this.ten_sug_text.Size = new System.Drawing.Size(80, 22);
             this.ten_sug_text.TabIndex = 11;
             this.ten_sug_text.Text = "200";
             // 
@@ -525,11 +542,199 @@ namespace feature_app
             this.function2_label.TabIndex = 11;
             this.function2_label.Text = "參數建議";
             // 
+            // sug_bt_1
+            // 
+            this.sug_bt_1.AutoSize = true;
+            this.sug_bt_1.Checked = true;
+            this.sug_bt_1.Font = new System.Drawing.Font("標楷體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.sug_bt_1.Location = new System.Drawing.Point(5, 21);
+            this.sug_bt_1.Name = "sug_bt_1";
+            this.sug_bt_1.Size = new System.Drawing.Size(138, 17);
+            this.sug_bt_1.TabIndex = 12;
+            this.sug_bt_1.TabStop = true;
+            this.sug_bt_1.Text = "磁導率↑/鐵損↓";
+            this.sug_bt_1.UseVisualStyleBackColor = true;
+            // 
+            // sug_bt_2
+            // 
+            this.sug_bt_2.AutoSize = true;
+            this.sug_bt_2.Font = new System.Drawing.Font("標楷體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.sug_bt_2.Location = new System.Drawing.Point(149, 21);
+            this.sug_bt_2.Name = "sug_bt_2";
+            this.sug_bt_2.Size = new System.Drawing.Size(100, 17);
+            this.sug_bt_2.TabIndex = 13;
+            this.sug_bt_2.Text = "最大拉伸↑";
+            this.sug_bt_2.UseVisualStyleBackColor = true;
+            // 
+            // model_select_group
+            // 
+            this.model_select_group.Controls.Add(this.sug_bt_1);
+            this.model_select_group.Controls.Add(this.sug_bt_2);
+            this.model_select_group.Location = new System.Drawing.Point(130, 263);
+            this.model_select_group.Name = "model_select_group";
+            this.model_select_group.Size = new System.Drawing.Size(282, 51);
+            this.model_select_group.TabIndex = 14;
+            this.model_select_group.TabStop = false;
+            this.model_select_group.Text = "模式選擇";
+            // 
+            // sugStart_bt
+            // 
+            this.sugStart_bt.Font = new System.Drawing.Font("標楷體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.sugStart_bt.Location = new System.Drawing.Point(429, 270);
+            this.sugStart_bt.Name = "sugStart_bt";
+            this.sugStart_bt.Size = new System.Drawing.Size(143, 44);
+            this.sugStart_bt.TabIndex = 15;
+            this.sugStart_bt.Text = "最佳化參數";
+            this.sugStart_bt.UseVisualStyleBackColor = true;
+            this.sugStart_bt.Click += new System.EventHandler(this.sug_bt_Click);
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
+            this.tableLayoutPanel4.ColumnCount = 5;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.02786F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.01942F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.14563F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.16505F));
+            this.tableLayoutPanel4.Controls.Add(this.sug_label_5, 4, 1);
+            this.tableLayoutPanel4.Controls.Add(this.sug_label_4, 3, 1);
+            this.tableLayoutPanel4.Controls.Add(this.sug_label_3, 2, 1);
+            this.tableLayoutPanel4.Controls.Add(this.sug_label_2, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label2, 4, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label3, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label4, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label5, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.sug_label_1, 0, 1);
+            this.tableLayoutPanel4.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(235, 343);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(553, 71);
+            this.tableLayoutPanel4.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.Location = new System.Drawing.Point(14, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 19);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "氧濃度";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label2.Location = new System.Drawing.Point(447, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 19);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "操作頻率";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.Location = new System.Drawing.Point(106, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 19);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "雷射功率";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label4.Location = new System.Drawing.Point(356, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 19);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "線間距";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label5.Location = new System.Drawing.Point(212, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(129, 19);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "雷射掃描速度";
+            // 
+            // sug_label_1
+            // 
+            this.sug_label_1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sug_label_1.AutoSize = true;
+            this.sug_label_1.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.sug_label_1.Location = new System.Drawing.Point(40, 44);
+            this.sug_label_1.Name = "sug_label_1";
+            this.sug_label_1.Size = new System.Drawing.Size(17, 16);
+            this.sug_label_1.TabIndex = 6;
+            this.sug_label_1.Text = "0";
+            // 
+            // sug_label_2
+            // 
+            this.sug_label_2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sug_label_2.AutoSize = true;
+            this.sug_label_2.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.sug_label_2.Location = new System.Drawing.Point(142, 44);
+            this.sug_label_2.Name = "sug_label_2";
+            this.sug_label_2.Size = new System.Drawing.Size(17, 16);
+            this.sug_label_2.TabIndex = 7;
+            this.sug_label_2.Text = "0";
+            // 
+            // sug_label_3
+            // 
+            this.sug_label_3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sug_label_3.AutoSize = true;
+            this.sug_label_3.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.sug_label_3.Location = new System.Drawing.Point(268, 44);
+            this.sug_label_3.Name = "sug_label_3";
+            this.sug_label_3.Size = new System.Drawing.Size(17, 16);
+            this.sug_label_3.TabIndex = 8;
+            this.sug_label_3.Text = "0";
+            // 
+            // sug_label_4
+            // 
+            this.sug_label_4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sug_label_4.AutoSize = true;
+            this.sug_label_4.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.sug_label_4.Location = new System.Drawing.Point(382, 44);
+            this.sug_label_4.Name = "sug_label_4";
+            this.sug_label_4.Size = new System.Drawing.Size(17, 16);
+            this.sug_label_4.TabIndex = 9;
+            this.sug_label_4.Text = "0";
+            // 
+            // sug_label_5
+            // 
+            this.sug_label_5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sug_label_5.AutoSize = true;
+            this.sug_label_5.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.sug_label_5.Location = new System.Drawing.Point(483, 44);
+            this.sug_label_5.Name = "sug_label_5";
+            this.sug_label_5.Size = new System.Drawing.Size(17, 16);
+            this.sug_label_5.TabIndex = 10;
+            this.sug_label_5.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tableLayoutPanel4);
+            this.Controls.Add(this.sugStart_bt);
+            this.Controls.Add(this.model_select_group);
             this.Controls.Add(this.function2_label);
             this.Controls.Add(this.function1_label);
             this.Controls.Add(this.tableLayoutPanel3);
@@ -546,6 +751,10 @@ namespace feature_app
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.model_select_group.ResumeLayout(false);
+            this.model_select_group.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -591,6 +800,21 @@ namespace feature_app
         private System.Windows.Forms.Label mu_label2;
         private System.Windows.Forms.Label function1_label;
         private System.Windows.Forms.Label function2_label;
+        private System.Windows.Forms.RadioButton sug_bt_1;
+        private System.Windows.Forms.RadioButton sug_bt_2;
+        private System.Windows.Forms.GroupBox model_select_group;
+        private System.Windows.Forms.Button sugStart_bt;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label sug_label_5;
+        private System.Windows.Forms.Label sug_label_4;
+        private System.Windows.Forms.Label sug_label_3;
+        private System.Windows.Forms.Label sug_label_2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label sug_label_1;
     }
 }
 

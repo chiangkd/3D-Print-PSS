@@ -1,9 +1,12 @@
+from pickle import NONE
 import xgboost as xgb
 import numpy as np
 import lightgbm as lgb
 import catboost as cat
 import os
 import sys
+
+
 
 current_path = os.getcwd();
 folder = 'model_set';
@@ -15,7 +18,7 @@ allFileList = os.listdir(current_path + '\\' + folder); # all file array
 # print(allFileList);
 
 
-input_data = [2.0000e+03, 2.0000e+02, 1.5000e+03, 1.2000e-01, 2.0000e+02]
+#input_data = [2.0000e+03, 2.0000e+02, 1.5000e+03, 1.2000e-01, 2.0000e+02]
 ###
 ## model declaration
 model_mu_xgb = xgb.XGBRegressor();
@@ -104,3 +107,5 @@ if __name__ == '__main__':
     print(cat_tensile_pred)
 
     #print("Run Successfully");
+
+
