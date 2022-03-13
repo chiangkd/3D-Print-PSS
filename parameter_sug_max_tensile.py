@@ -16,21 +16,22 @@ from pymoo.decomposition.asf import ASF
 
 input_data = [sys for sys in sys.argv];
 
-class MyProblem(ElementwiseProblem):    # max mu and min Pcv
+
+class max_tensile(ElementwiseProblem):    # max mu and min Pcv
     def __init__(self):
-        super().__init__(n_var=5,
+        super().__init__(n_var=4,
                          n_obj=2,
                          n_constr=0,
-                         xl=np.array([2000,100,300,0.08,50]),  # lower bound
-                         xu=np.array([8000,200,1500,0.12,800])) # upper bound
+                         xl=np.array([2000,100,300,0.08]),  # lower bound
+                         xu=np.array([8000,200,1500,0.12])) # upper bound
     def _evaluate(self, x, out, *args, **kwargs):
-        f1 = -np.float64(model_mu_xgb.predict(np.array(x).reshape(1, -1)))   #mu
-        f2 = np.float64(model_Pcv_xgb.predict(np.array(x).reshape(1, -1)))  #Pcv
+        f1 = -np.float64(model_tensile_xgb.predict(np.array(x).reshape(1, -1)))   #max mu
+        #f2 = np.float64(model_Pcv_xgb.predict(np.array(x).reshape(1, -1)))  #Pcv
 
-        out["F"] = [f1, f2]
+        out["F"] = [f1]
 
-problem = MyProblem()
-
+problem = max_tensile()
+    
 
 ## Initialize an Algorithm
 
@@ -80,18 +81,16 @@ fu = nF.max(axis=0)
 # first objective is less a bit less important than the 
 # second objective by setting the weights to
 
-weights = np.array([0.2, 0.8])
+weights = np.array([1])
 
 ## the decomposition method called Augmented Scalarization Function (ASF)
 
 decomp = ASF()
 
 i = decomp.do(nF, 1/weights).argmin()   ## BEST index
-print(-F[2][0].round(decimals = 2), F[2][1].round(decimals = 2))    ## characteristic
+print(-F[i].round(decimals = 2),)    ## characteristic
 
 print(np.int16(X[2][0]), np.int16(X[2][1]),     ## parameter suggestion
       np.int16(X[2][2]),
       X[2][3].round(decimals=2), 
       np.int16(X[2][4]))
-
-

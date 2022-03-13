@@ -115,12 +115,26 @@ namespace feature_app
         private void sug_bt_Click(object sender, EventArgs e)
         {
             string[] strArr = new string[5];//引數列表
+            string sArguments = @"parameter_sug_max_mu_min_pcv.py";//這裡是python的檔名字
             if (sug_bt_1.Checked)
             {
-                strArr[0] = "1";
+                sArguments = @"parameter_sug_max_mu_min_pcv.py";
             }
-            string sArguments = @"parameter_sug.py";//這裡是python的檔名字
+            else if(sug_bt_2.Checked)
+            {
+                sArguments = @"parameter_sug_max_tensile.py";
+            }
             RunPythonScript(sArguments, "-u", strArr);
+            if (sug_bt_1.Checked)   // mode of max mu min pcv
+            {
+                mu_sug_text.Text = output[0].Split(' ')[0];
+                pcv_sug_text.Text = output[0].Split(' ')[1];
+            }
+            else if (sug_bt_2.Checked)  // mode of max tensile
+            {
+                ten_sug_text.Text = output[0];
+            }
+            
             para_sug = output[1].Split(' ');    // split "5" parameter and store at para_sug array.
             sug_label_1.Text = para_sug[0];
             sug_label_2.Text = para_sug[1];
@@ -129,6 +143,15 @@ namespace feature_app
             sug_label_5.Text = para_sug[4];
 
 
+        }
+
+        private void input_bt_Click(object sender, EventArgs e)
+        {
+            ox_text.Text = sug_label_1.Text;
+            Power_text.Text = sug_label_2.Text;
+            Speed_text.Text = sug_label_3.Text;
+            Spacing_text.Text = sug_label_4.Text;
+            Freq_text.Text = sug_label_5.Text;
         }
     }
 }

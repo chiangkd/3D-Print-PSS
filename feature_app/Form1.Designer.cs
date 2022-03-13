@@ -82,6 +82,8 @@ namespace feature_app
             this.sug_label_3 = new System.Windows.Forms.Label();
             this.sug_label_4 = new System.Windows.Forms.Label();
             this.sug_label_5 = new System.Windows.Forms.Label();
+            this.input_bt = new System.Windows.Forms.Button();
+            this.sug_bt_3 = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -511,7 +513,7 @@ namespace feature_app
             this.mu_sug_text.Name = "mu_sug_text";
             this.mu_sug_text.Size = new System.Drawing.Size(80, 22);
             this.mu_sug_text.TabIndex = 11;
-            this.mu_sug_text.Text = "200";
+            this.mu_sug_text.Text = "0";
             // 
             // pcv_sug_text
             // 
@@ -520,7 +522,7 @@ namespace feature_app
             this.pcv_sug_text.Name = "pcv_sug_text";
             this.pcv_sug_text.Size = new System.Drawing.Size(80, 22);
             this.pcv_sug_text.TabIndex = 11;
-            this.pcv_sug_text.Text = "200";
+            this.pcv_sug_text.Text = "0";
             // 
             // ten_sug_text
             // 
@@ -529,7 +531,7 @@ namespace feature_app
             this.ten_sug_text.Name = "ten_sug_text";
             this.ten_sug_text.Size = new System.Drawing.Size(80, 22);
             this.ten_sug_text.TabIndex = 11;
-            this.ten_sug_text.Text = "200";
+            this.ten_sug_text.Text = "0";
             // 
             // function2_label
             // 
@@ -558,6 +560,7 @@ namespace feature_app
             // sug_bt_2
             // 
             this.sug_bt_2.AutoSize = true;
+            this.sug_bt_2.Enabled = false;
             this.sug_bt_2.Font = new System.Drawing.Font("標楷體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.sug_bt_2.Location = new System.Drawing.Point(149, 21);
             this.sug_bt_2.Name = "sug_bt_2";
@@ -568,11 +571,12 @@ namespace feature_app
             // 
             // model_select_group
             // 
+            this.model_select_group.Controls.Add(this.sug_bt_3);
             this.model_select_group.Controls.Add(this.sug_bt_1);
             this.model_select_group.Controls.Add(this.sug_bt_2);
             this.model_select_group.Location = new System.Drawing.Point(130, 263);
             this.model_select_group.Name = "model_select_group";
-            this.model_select_group.Size = new System.Drawing.Size(282, 51);
+            this.model_select_group.Size = new System.Drawing.Size(347, 51);
             this.model_select_group.TabIndex = 14;
             this.model_select_group.TabStop = false;
             this.model_select_group.Text = "模式選擇";
@@ -580,7 +584,7 @@ namespace feature_app
             // sugStart_bt
             // 
             this.sugStart_bt.Font = new System.Drawing.Font("標楷體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.sugStart_bt.Location = new System.Drawing.Point(429, 270);
+            this.sugStart_bt.Location = new System.Drawing.Point(507, 270);
             this.sugStart_bt.Name = "sugStart_bt";
             this.sugStart_bt.Size = new System.Drawing.Size(143, 44);
             this.sugStart_bt.TabIndex = 15;
@@ -727,11 +731,35 @@ namespace feature_app
             this.sug_label_5.TabIndex = 10;
             this.sug_label_5.Text = "0";
             // 
+            // input_bt
+            // 
+            this.input_bt.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.input_bt.Location = new System.Drawing.Point(700, 159);
+            this.input_bt.Name = "input_bt";
+            this.input_bt.Size = new System.Drawing.Size(53, 133);
+            this.input_bt.TabIndex = 17;
+            this.input_bt.Text = "↑";
+            this.input_bt.UseVisualStyleBackColor = true;
+            this.input_bt.Click += new System.EventHandler(this.input_bt_Click);
+            // 
+            // sug_bt_3
+            // 
+            this.sug_bt_3.AutoSize = true;
+            this.sug_bt_3.Enabled = false;
+            this.sug_bt_3.Font = new System.Drawing.Font("標楷體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.sug_bt_3.Location = new System.Drawing.Point(255, 21);
+            this.sug_bt_3.Name = "sug_bt_3";
+            this.sug_bt_3.Size = new System.Drawing.Size(70, 17);
+            this.sug_bt_3.TabIndex = 14;
+            this.sug_bt_3.Text = "客製化";
+            this.sug_bt_3.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.input_bt);
             this.Controls.Add(this.tableLayoutPanel4);
             this.Controls.Add(this.sugStart_bt);
             this.Controls.Add(this.model_select_group);
@@ -815,6 +843,8 @@ namespace feature_app
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label sug_label_1;
+        private System.Windows.Forms.Button input_bt;
+        private System.Windows.Forms.RadioButton sug_bt_3;
     }
 }
 
