@@ -35,6 +35,7 @@ namespace feature_app
 
         }
 
+        /*
         private void Pred_bt_Click(object sender, EventArgs e)
         {
             string[] strArr = new string[5];//引數列表
@@ -46,6 +47,7 @@ namespace feature_app
             strArr[3] = Spacing_text.Text;
             strArr[4] = Freq_text.Text;
             RunPythonScript(sArguments, "-u", strArr);
+
             xgb_mu_output_label.Text = output[0];
             cat_mu_output_label.Text = output[1];
             lgb_mu_output_label.Text = output[2];
@@ -54,10 +56,9 @@ namespace feature_app
             lgb_pcv_output_label.Text = output[5];
             xgb_ten_output_label.Text = output[6];
             cat_ten_output_label.Text = output[7];
-            lgb_ten_output_label.Text = "x";  // x
-        
-            
+            lgb_ten_output_label.Text = "x";  // x     
         }
+        */
         public void RunPythonScript(string sArgName, string args = "", params string[] teps)
         {
             count = 0; // initialize
@@ -115,9 +116,30 @@ namespace feature_app
         private void sug_bt_Click(object sender, EventArgs e)
         {
             string[] strArr = new string[5];//引數列表
+
+            switch (freq_combobox.Text)
+            {
+                case "50":
+                    strArr[0] = "1";
+                    break;
+                case "200":
+                    strArr[0] = "2";
+                    break;
+                case "400":
+                    strArr[0] = "3";
+                    break;
+                case "800":
+                    strArr[0] = "4";
+                    break;
+                default:
+                    break;
+            }
+           
+
             string sArguments = @"parameter_sug_max_mu_min_pcv.py";//這裡是python的檔名字
             if (sug_bt_1.Checked)
             {
+                Console.WriteLine("in!!!!!!!");
                 sArguments = @"parameter_sug_max_mu_min_pcv.py";
             }
             else if(sug_bt_2.Checked)
@@ -127,31 +149,23 @@ namespace feature_app
             RunPythonScript(sArguments, "-u", strArr);
             if (sug_bt_1.Checked)   // mode of max mu min pcv
             {
-                mu_sug_text.Text = output[0].Split(' ')[0];
-                pcv_sug_text.Text = output[0].Split(' ')[1];
+                //mu_sug_text.Text = output[0].Split(' ')[0];
+                //pcv_sug_text.Text = output[0].Split(' ')[1];
             }
             else if (sug_bt_2.Checked)  // mode of max tensile
             {
                 ten_sug_text.Text = output[0];
             }
             
-            para_sug = output[1].Split(' ');    // split "5" parameter and store at para_sug array.
+            //para_sug = output[1].Split(' ');    // split "5" parameter and store at para_sug array.
             sug_label_1.Text = para_sug[0];
             sug_label_2.Text = para_sug[1];
             sug_label_3.Text = para_sug[2];
             sug_label_4.Text = para_sug[3];
-            sug_label_5.Text = para_sug[4];
+            // sug_label_5.Text = para_sug[4];
 
 
         }
 
-        private void input_bt_Click(object sender, EventArgs e)
-        {
-            ox_text.Text = sug_label_1.Text;
-            Power_text.Text = sug_label_2.Text;
-            Speed_text.Text = sug_label_3.Text;
-            Spacing_text.Text = sug_label_4.Text;
-            Freq_text.Text = sug_label_5.Text;
-        }
     }
 }

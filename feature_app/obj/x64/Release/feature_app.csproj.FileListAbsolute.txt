@@ -23,3 +23,4 @@ C:\Users\User\Desktop\feature_app\feature_app\obj\x64\Release\feature_app.csproj
 C:\Users\User\Desktop\feature_app\feature_app\obj\x64\Release\feature_app.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\feature_app\feature_app\obj\x64\Release\feature_app.csproj.CopyComplete
 C:\Users\User\Desktop\feature_app\feature_app\obj\x64\Release\feature_app.exe
+C:\Users\User\Desktop\feature_app\feature_app\obj\x64\Release\feature_app.csproj.AssemblyReference.cache

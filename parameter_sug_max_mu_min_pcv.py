@@ -1,12 +1,15 @@
+
+from ast import arg
 import numpy as np
 import sys
-from model import model_mu_cat,model_mu_xgb,model_mu_lgb,model_Pcv_lgb,model_Pcv_cat,model_Pcv_xgb,model_tensile_cat,model_tensile_xgb
+from model import *
 from pymoo.core.problem import ElementwiseProblem
 from pymoo.factory import get_problem, get_sampling, get_crossover, get_mutation
 from pymoo.algorithms.moo.nsga2 import NSGA2
 from pymoo.factory import get_termination
 from pymoo.optimize import minimize
 from pymoo.decomposition.asf import ASF
+
 
 ## NSGA II implementation
 
@@ -21,17 +24,27 @@ class max_mu_min_pcv(ElementwiseProblem):    # max mu and min Pcv
         super().__init__(n_var=5,
                          n_obj=2,
                          n_constr=0,
-                         xl=np.array([2000,100,300,0.08,50]),  # lower bound
-                         xu=np.array([8000,200,1500,0.12,800])) # upper bound
-    def _evaluate(self, x, out, *args, **kwargs):
-        f1 = -np.float64(model_mu_xgb.predict(np.array(x).reshape(1, -1)))   #mu
-        f2 = np.float64(model_Pcv_xgb.predict(np.array(x).reshape(1, -1)))  #Pcv
+                         xl=np.array([2000,100,300,0.08]),  # lower bound
+                         xu=np.array([8000,200,1500,0.12])) # upper bound
+    def _evaluate(self,x, out, mode, *args, **kwargs):
+        f1 = -np.float64(args[mode].predict(np.array(x.append(200)).reshape(1, -1)))   #mu
+        f2 = np.float64(args[mode].predict(np.array(x.append(200)).reshape(1, -1)))  #Pcv
 
         out["F"] = [f1, f2]
 
-problem = max_mu_min_pcv()
 
-    
+# input data = 
+# ['C:\\Users\\User\\Desktop\\feature_app\\parameter_sug_max_mu_min_pcv.py', '1', '-u']
+
+mode = input_data[1]
+print(model_mu_xgb_50)   
+problem = max_mu_min_pcv(mode=mode,args=[model_mu_xgb_50,
+                                           model_mu_xgb_200,
+                                           model_mu_xgb_400,
+                                           model_mu_xgb_800])
+
+
+print("in")    
 
 ## Initialize an Algorithm
 
@@ -58,12 +71,18 @@ res = minimize(problem,
 F = res.F
 X = res.X
 
+## give parameter to model and caculate the output
+
+
 ## Multi-Criteria Decision Making
 
 fl = F.min(axis=0)
 fu = F.max(axis=0)
 approx_ideal = F.min(axis=0)
 approx_nadir = F.max(axis=0)
+
+### parameter suggestion from NSGA-II
+
 
 ###
 ## Normalizing the obtained objective values regarding the boundary
@@ -88,9 +107,46 @@ weights = np.array([0.2, 0.8])
 decomp = ASF()
 
 i = decomp.do(nF, 1/weights).argmin()   ## BEST index
-print(-F[i][0].round(decimals = 2), F[i][1].round(decimals = 2))    ## characteristic
 
-print(np.int16(X[2][0]), np.int16(X[2][1]),     ## parameter suggestion
-      np.int16(X[2][2]),
-      X[2][3].round(decimals=2), 
-      np.int16(X[2][4]))
+###characteristic prediction from NSGA-II###
+# print(-F[i][0].round(decimals = 2), F[i][1].round(decimals = 2))    ## characteristic
+##########################
+
+
+
+data_for_pred = [np.int16(X[2][0]),                ## ox
+                 np.int16(X[2][1]),                ## power
+                 np.int16(X[2][2]),                ## speed
+                 X[2][3].round(decimals=2)]        ## spacing
+
+
+
+
+pred_mu_50 = model_mu_xgb_50(data_for_pred)
+pred_Pcv_50 = model_Pcv_xgb_50(data_for_pred)
+print(pred_mu_50)
+print(pred_Pcv_50)
+
+pred_mu_200 = model_mu_xgb_200(data_for_pred)
+pred_Pcv_200 = model_Pcv_xgb_200(data_for_pred)
+print(pred_mu_200)
+print(pred_Pcv_200)
+
+pred_mu_400 = model_mu_xgb_400(F)
+pred_Pcv_400 = model_Pcv_xgb_400(F)
+print(pred_mu_400)
+print(pred_Pcv_400)
+
+pred_mu_800 = model_mu_xgb_800(F)
+pred_Pcv_800 = model_Pcv_xgb_800(F)
+print(pred_mu_800)
+print(pred_Pcv_800)
+
+
+########manufacturing parameter suggestion################
+print(np.int16(X[2][0]),                ## ox            #
+      np.int16(X[2][1]),                ## power         #
+      np.int16(X[2][2]),                ## speed         #
+      X[2][3].round(decimals=2),        ## spacing       #
+      np.int16(X[2][4]))                ## frequency     #
+##########################################################
