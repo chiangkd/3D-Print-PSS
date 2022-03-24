@@ -339,6 +339,7 @@ namespace feature_app
             // 
             // freq_combobox
             // 
+            this.freq_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.freq_combobox.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.freq_combobox.FormattingEnabled = true;
             this.freq_combobox.Items.AddRange(new object[] {
@@ -350,7 +351,6 @@ namespace feature_app
             this.freq_combobox.Name = "freq_combobox";
             this.freq_combobox.Size = new System.Drawing.Size(80, 24);
             this.freq_combobox.TabIndex = 18;
-            this.freq_combobox.Text = "50";
             // 
             // oper_label
             // 

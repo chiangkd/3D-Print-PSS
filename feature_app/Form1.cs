@@ -116,20 +116,20 @@ namespace feature_app
         private void sug_bt_Click(object sender, EventArgs e)
         {
             string[] strArr = new string[5];//引數列表
-
+            string[] AI_pred = new string[3];   // prediction by AI from the NSGA-II parameter
             switch (freq_combobox.Text)
             {
                 case "50":
-                    strArr[0] = "1";
+                    strArr[0] = "0";
                     break;
                 case "200":
-                    strArr[0] = "2";
+                    strArr[0] = "1";
                     break;
                 case "400":
-                    strArr[0] = "3";
+                    strArr[0] = "2";
                     break;
                 case "800":
-                    strArr[0] = "4";
+                    strArr[0] = "3";
                     break;
                 default:
                     break;
@@ -149,15 +149,17 @@ namespace feature_app
             RunPythonScript(sArguments, "-u", strArr);
             if (sug_bt_1.Checked)   // mode of max mu min pcv
             {
-                //mu_sug_text.Text = output[0].Split(' ')[0];
-                //pcv_sug_text.Text = output[0].Split(' ')[1];
+                AI_pred = output[0].Split(' ');
+                mu_sug_text.Text = AI_pred[0];
+                pcv_sug_text.Text = AI_pred[1];
+                ten_sug_text.Text = AI_pred[2];
             }
             else if (sug_bt_2.Checked)  // mode of max tensile
             {
                 ten_sug_text.Text = output[0];
             }
             
-            //para_sug = output[1].Split(' ');    // split "5" parameter and store at para_sug array.
+            para_sug = output[1].Split(' ');    // split "4" parameter and store at para_sug array.
             sug_label_1.Text = para_sug[0];
             sug_label_2.Text = para_sug[1];
             sug_label_3.Text = para_sug[2];
