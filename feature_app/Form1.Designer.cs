@@ -39,7 +39,6 @@ namespace feature_app
             this.mu_label2 = new System.Windows.Forms.Label();
             this.function2_label = new System.Windows.Forms.Label();
             this.sug_bt_1 = new System.Windows.Forms.RadioButton();
-            this.sug_bt_2 = new System.Windows.Forms.RadioButton();
             this.model_select_group = new System.Windows.Forms.GroupBox();
             this.sug_bt_3 = new System.Windows.Forms.RadioButton();
             this.sugStart_bt = new System.Windows.Forms.Button();
@@ -55,6 +54,7 @@ namespace feature_app
             this.freq_combobox = new System.Windows.Forms.ComboBox();
             this.oper_label = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.sug_bt_2 = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel3.SuspendLayout();
             this.model_select_group.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -176,26 +176,14 @@ namespace feature_app
             this.sug_bt_1.Text = "磁導率↑/鐵損↓";
             this.sug_bt_1.UseVisualStyleBackColor = true;
             // 
-            // sug_bt_2
-            // 
-            this.sug_bt_2.AutoSize = true;
-            this.sug_bt_2.Enabled = false;
-            this.sug_bt_2.Font = new System.Drawing.Font("標楷體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.sug_bt_2.Location = new System.Drawing.Point(149, 21);
-            this.sug_bt_2.Name = "sug_bt_2";
-            this.sug_bt_2.Size = new System.Drawing.Size(100, 17);
-            this.sug_bt_2.TabIndex = 13;
-            this.sug_bt_2.Text = "最大拉伸↑";
-            this.sug_bt_2.UseVisualStyleBackColor = true;
-            // 
             // model_select_group
             // 
+            this.model_select_group.Controls.Add(this.sug_bt_2);
             this.model_select_group.Controls.Add(this.sug_bt_3);
             this.model_select_group.Controls.Add(this.sug_bt_1);
-            this.model_select_group.Controls.Add(this.sug_bt_2);
             this.model_select_group.Location = new System.Drawing.Point(124, 52);
             this.model_select_group.Name = "model_select_group";
-            this.model_select_group.Size = new System.Drawing.Size(347, 51);
+            this.model_select_group.Size = new System.Drawing.Size(322, 51);
             this.model_select_group.TabIndex = 14;
             this.model_select_group.TabStop = false;
             this.model_select_group.Text = "模式選擇";
@@ -205,7 +193,7 @@ namespace feature_app
             this.sug_bt_3.AutoSize = true;
             this.sug_bt_3.Enabled = false;
             this.sug_bt_3.Font = new System.Drawing.Font("標楷體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.sug_bt_3.Location = new System.Drawing.Point(255, 21);
+            this.sug_bt_3.Location = new System.Drawing.Point(246, 21);
             this.sug_bt_3.Name = "sug_bt_3";
             this.sug_bt_3.Size = new System.Drawing.Size(70, 17);
             this.sug_bt_3.TabIndex = 14;
@@ -372,11 +360,23 @@ namespace feature_app
             this.label2.TabIndex = 20;
             this.label2.Text = "特性預估";
             // 
+            // sug_bt_2
+            // 
+            this.sug_bt_2.AutoSize = true;
+            this.sug_bt_2.Enabled = false;
+            this.sug_bt_2.Font = new System.Drawing.Font("標楷體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.sug_bt_2.Location = new System.Drawing.Point(149, 21);
+            this.sug_bt_2.Name = "sug_bt_2";
+            this.sug_bt_2.Size = new System.Drawing.Size(85, 17);
+            this.sug_bt_2.TabIndex = 15;
+            this.sug_bt_2.Text = "最大拉伸";
+            this.sug_bt_2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 266);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.oper_label);
             this.Controls.Add(this.freq_combobox);
@@ -412,7 +412,6 @@ namespace feature_app
         private System.Windows.Forms.Label mu_label2;
         private System.Windows.Forms.Label function2_label;
         private System.Windows.Forms.RadioButton sug_bt_1;
-        private System.Windows.Forms.RadioButton sug_bt_2;
         private System.Windows.Forms.GroupBox model_select_group;
         private System.Windows.Forms.Button sugStart_bt;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
@@ -428,6 +427,7 @@ namespace feature_app
         private System.Windows.Forms.ComboBox freq_combobox;
         private System.Windows.Forms.Label oper_label;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RadioButton sug_bt_2;
     }
 }
 
