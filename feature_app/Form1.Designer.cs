@@ -40,6 +40,7 @@ namespace feature_app
             this.function2_label = new System.Windows.Forms.Label();
             this.sug_bt_1 = new System.Windows.Forms.RadioButton();
             this.model_select_group = new System.Windows.Forms.GroupBox();
+            this.sug_bt_2 = new System.Windows.Forms.RadioButton();
             this.sug_bt_3 = new System.Windows.Forms.RadioButton();
             this.sugStart_bt = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -54,10 +55,17 @@ namespace feature_app
             this.freq_combobox = new System.Windows.Forms.ComboBox();
             this.oper_label = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.sug_bt_2 = new System.Windows.Forms.RadioButton();
+            this.cus_setting = new System.Windows.Forms.TableLayoutPanel();
+            this.cus_tensile = new System.Windows.Forms.TextBox();
+            this.cus_Pcv = new System.Windows.Forms.TextBox();
+            this.cus_mu = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3.SuspendLayout();
             this.model_select_group.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.cus_setting.SuspendLayout();
             this.SuspendLayout();
             // 
             // Title_label
@@ -181,24 +189,35 @@ namespace feature_app
             this.model_select_group.Controls.Add(this.sug_bt_2);
             this.model_select_group.Controls.Add(this.sug_bt_3);
             this.model_select_group.Controls.Add(this.sug_bt_1);
-            this.model_select_group.Location = new System.Drawing.Point(124, 52);
+            this.model_select_group.Location = new System.Drawing.Point(19, 73);
             this.model_select_group.Name = "model_select_group";
-            this.model_select_group.Size = new System.Drawing.Size(322, 51);
+            this.model_select_group.Size = new System.Drawing.Size(399, 51);
             this.model_select_group.TabIndex = 14;
             this.model_select_group.TabStop = false;
             this.model_select_group.Text = "模式選擇";
             // 
+            // sug_bt_2
+            // 
+            this.sug_bt_2.AutoSize = true;
+            this.sug_bt_2.Font = new System.Drawing.Font("標楷體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.sug_bt_2.Location = new System.Drawing.Point(149, 21);
+            this.sug_bt_2.Name = "sug_bt_2";
+            this.sug_bt_2.Size = new System.Drawing.Size(168, 17);
+            this.sug_bt_2.TabIndex = 15;
+            this.sug_bt_2.Text = "磁導率↑/最大拉伸↑";
+            this.sug_bt_2.UseVisualStyleBackColor = true;
+            // 
             // sug_bt_3
             // 
             this.sug_bt_3.AutoSize = true;
-            this.sug_bt_3.Enabled = false;
             this.sug_bt_3.Font = new System.Drawing.Font("標楷體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.sug_bt_3.Location = new System.Drawing.Point(246, 21);
+            this.sug_bt_3.Location = new System.Drawing.Point(323, 21);
             this.sug_bt_3.Name = "sug_bt_3";
             this.sug_bt_3.Size = new System.Drawing.Size(70, 17);
             this.sug_bt_3.TabIndex = 14;
             this.sug_bt_3.Text = "客製化";
             this.sug_bt_3.UseVisualStyleBackColor = true;
+            this.sug_bt_3.CheckedChanged += new System.EventHandler(this.cus_checked);
             // 
             // sugStart_bt
             // 
@@ -335,7 +354,7 @@ namespace feature_app
             "200",
             "400",
             "800"});
-            this.freq_combobox.Location = new System.Drawing.Point(477, 79);
+            this.freq_combobox.Location = new System.Drawing.Point(249, 50);
             this.freq_combobox.Name = "freq_combobox";
             this.freq_combobox.Size = new System.Drawing.Size(80, 24);
             this.freq_combobox.TabIndex = 18;
@@ -344,7 +363,7 @@ namespace feature_app
             // 
             this.oper_label.AutoSize = true;
             this.oper_label.Font = new System.Drawing.Font("標楷體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.oper_label.Location = new System.Drawing.Point(476, 57);
+            this.oper_label.Location = new System.Drawing.Point(176, 57);
             this.oper_label.Name = "oper_label";
             this.oper_label.Size = new System.Drawing.Size(67, 13);
             this.oper_label.TabIndex = 19;
@@ -360,23 +379,95 @@ namespace feature_app
             this.label2.TabIndex = 20;
             this.label2.Text = "特性預估";
             // 
-            // sug_bt_2
+            // cus_setting
             // 
-            this.sug_bt_2.AutoSize = true;
-            this.sug_bt_2.Enabled = false;
-            this.sug_bt_2.Font = new System.Drawing.Font("標楷體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.sug_bt_2.Location = new System.Drawing.Point(149, 21);
-            this.sug_bt_2.Name = "sug_bt_2";
-            this.sug_bt_2.Size = new System.Drawing.Size(85, 17);
-            this.sug_bt_2.TabIndex = 15;
-            this.sug_bt_2.Text = "最大拉伸";
-            this.sug_bt_2.UseVisualStyleBackColor = true;
+            this.cus_setting.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
+            this.cus_setting.ColumnCount = 2;
+            this.cus_setting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.44736F));
+            this.cus_setting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.55263F));
+            this.cus_setting.Controls.Add(this.cus_tensile, 1, 2);
+            this.cus_setting.Controls.Add(this.cus_Pcv, 1, 1);
+            this.cus_setting.Controls.Add(this.cus_mu, 1, 0);
+            this.cus_setting.Controls.Add(this.label6, 0, 2);
+            this.cus_setting.Controls.Add(this.label7, 0, 1);
+            this.cus_setting.Controls.Add(this.label8, 0, 0);
+            this.cus_setting.Location = new System.Drawing.Point(431, 52);
+            this.cus_setting.Name = "cus_setting";
+            this.cus_setting.RowCount = 3;
+            this.cus_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.cus_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.cus_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.cus_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.cus_setting.Size = new System.Drawing.Size(160, 80);
+            this.cus_setting.TabIndex = 21;
+            this.cus_setting.Visible = false;
+            // 
+            // cus_tensile
+            // 
+            this.cus_tensile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cus_tensile.Location = new System.Drawing.Point(109, 56);
+            this.cus_tensile.Name = "cus_tensile";
+            this.cus_tensile.Size = new System.Drawing.Size(45, 22);
+            this.cus_tensile.TabIndex = 11;
+            this.cus_tensile.Text = "0";
+            // 
+            // cus_Pcv
+            // 
+            this.cus_Pcv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cus_Pcv.Location = new System.Drawing.Point(109, 31);
+            this.cus_Pcv.Name = "cus_Pcv";
+            this.cus_Pcv.Size = new System.Drawing.Size(45, 22);
+            this.cus_Pcv.TabIndex = 11;
+            this.cus_Pcv.Text = "0";
+            // 
+            // cus_mu
+            // 
+            this.cus_mu.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cus_mu.Location = new System.Drawing.Point(109, 6);
+            this.cus_mu.Name = "cus_mu";
+            this.cus_mu.Size = new System.Drawing.Size(45, 22);
+            this.cus_mu.TabIndex = 11;
+            this.cus_mu.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label6.Location = new System.Drawing.Point(15, 57);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 16);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "最大拉伸";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label7.Location = new System.Drawing.Point(32, 31);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(42, 16);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "鐵損";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label8.Location = new System.Drawing.Point(23, 6);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 16);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "磁導率";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 266);
+            this.Controls.Add(this.cus_setting);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.oper_label);
             this.Controls.Add(this.freq_combobox);
@@ -395,6 +486,8 @@ namespace feature_app
             this.model_select_group.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.cus_setting.ResumeLayout(false);
+            this.cus_setting.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,6 +521,13 @@ namespace feature_app
         private System.Windows.Forms.Label oper_label;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton sug_bt_2;
+        private System.Windows.Forms.TableLayoutPanel cus_setting;
+        private System.Windows.Forms.TextBox cus_tensile;
+        private System.Windows.Forms.TextBox cus_Pcv;
+        private System.Windows.Forms.TextBox cus_mu;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
 

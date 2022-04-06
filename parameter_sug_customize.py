@@ -20,8 +20,8 @@ from pymoo.decomposition.asf import ASF
 
 input_data = [sys for sys in sys.argv];
 
-class max_mu_min_pcv(ElementwiseProblem):    # max mu and min Pcv
-    def __init__(self,mode1, mode2 ,*args, **kwargs):
+class customize(ElementwiseProblem):    # max mu and min Pcv
+    def __init__(self,mode1, mode2, mode3 ,*args, **kwargs):
         super().__init__(n_var=4,
                          n_obj=2,
                          n_constr=0,
@@ -29,11 +29,17 @@ class max_mu_min_pcv(ElementwiseProblem):    # max mu and min Pcv
                          xu=np.array([8000,200,1500,0.12])) # upper bound
         self.mode1 = mode1  # mu model selected
         self.mode2 = mode2  # Pcv model selected
+        self.mode3 = mode3  # tensile model selected
+        # the user input characteristic
+        self.mu = args[0]
+        self.Pcv = args[1]
+        self.tensile = args[2]
+        ###############################
     def _evaluate(self,x, out, *args, **kwargs):
-        f1 = -np.float64(self.mode1.predict(np.array(x).reshape(1, -1)))   #mu
-        f2 = np.float64(self.mode2.predict(np.array(x).reshape(1, -1)))  #Pcv
-
-        out["F"] = [f1, f2]
+        f1 = np.abs(self.mu-np.float64(self.mode1.predict(np.array(x).reshape(1, -1))))   #mu
+        f2 = np.abs(self.Pcv-np.float64(self.mode2.predict(np.array(x).reshape(1, -1))))  #Pcv
+        f3 = np.abs(self.tensile - np.float64(self.mode3.predict(np.array(x).reshape(1, -1))))  # tensile
+        out["F"] = [f1, f2, f3]
 
 
 # input data = 
@@ -43,10 +49,8 @@ class max_mu_min_pcv(ElementwiseProblem):    # max mu and min Pcv
 # input_data = ['C:\\Users\\User\\Desktop\\feature_app\\parameter_sug_max_mu_min_pcv.py', '1', '-u']
 ##
 mode = input_data[1]    # frequency mode selected
-# print("mode = ",mode)
+cus_characteristic = [int(input_data[2]), int(input_data[3]), int(input_data[4])]
 
-
-######## mode selection ########
 model_mu_input = [model_mu_xgb_50,      ## mu model
                model_mu_xgb_200,
                model_mu_xgb_400,
@@ -56,8 +60,12 @@ model_Pcv_input = [model_Pcv_xgb_50,    ## Pcv model
                model_Pcv_xgb_400,
                model_Pcv_xgb_800]
 
-problem = max_mu_min_pcv(mode1=model_mu_input[int(mode)], mode2=model_Pcv_input[int(mode)])   # input different mode
-#################################
+model_tensile_input = model_tensile_xgb # tensile model no relate to frequency
+
+
+problem = customize(mode1=model_mu_input[int(mode)],
+                    mode2=model_Pcv_input[int(mode)],
+                    mode3=model_tensile_xgb, args= cus_characteristic)   # input different mode
 
 
 ## Initialize an Algorithm
@@ -106,7 +114,7 @@ nF = (F - approx_ideal) / (approx_nadir - approx_ideal)
 # nF shape = (40, 2)
 
 fl = nF.min(axis=0) 
-fu = nF.max(axis=0)
+fu = nF.max(axis=0) 
 
 ## Compromise Programming
 
@@ -174,4 +182,6 @@ print(np.int16(X[2][0]),                ## ox            #
       X[2][3].round(decimals=2))        ## spacing       #
 ##########################################################
 
-print("Parameter suggestion finish!!- mmmp")
+print("mode = ", mode)
+
+print("Parameter suggestion finish!!- customize")

@@ -137,27 +137,39 @@ namespace feature_app
            
 
             string sArguments = @"parameter_sug_max_mu_min_pcv.py";//這裡是python的檔名字
+
+
+            // mode chosen - maximize mu and minimize Pcv
             if (sug_bt_1.Checked)
             {
-                Console.WriteLine("in!!!!!!!");
+                Console.WriteLine("Maximize mu and minimize Pcv");
                 sArguments = @"parameter_sug_max_mu_min_pcv.py";
             }
-            else if(sug_bt_2.Checked)
+            else if(sug_bt_2.Checked)   // maximize mu and maximize tensile
             {
-                sArguments = @"parameter_sug_max_tensile.py";
+                Console.WriteLine("Maximize mu and maximize tensile");
+                sArguments = @"parameter_sug_max_mu_max_tensile.py";
+            }else if (sug_bt_3.Checked) // user customize
+            {
+                Console.WriteLine("Customize %s %s %s \n", cus_mu.Text, cus_Pcv.Text, cus_tensile.Text);
+                sArguments = @"parameter_sug_customize.py";
+                strArr[1] = cus_mu.Text;
+                strArr[2] = cus_Pcv.Text;
+                strArr[3] = cus_tensile.Text;
             }
+
+
+
             RunPythonScript(sArguments, "-u", strArr);
-            if (sug_bt_1.Checked)   // mode of max mu min pcv
+            // split output and stored in an array for show
+            if (sug_bt_1.Checked || sug_bt_2.Checked || sug_bt_3.Checked)   
             {
                 AI_pred = output[0].Split(' ');
                 mu_sug_text.Text = AI_pred[0];
                 pcv_sug_text.Text = AI_pred[1];
                 ten_sug_text.Text = AI_pred[2];
             }
-            else if (sug_bt_2.Checked)  // mode of max tensile
-            {
-                ten_sug_text.Text = output[0];
-            }
+
             
             para_sug = output[1].Split(' ');    // split "4" parameter and store at para_sug array.
             sug_label_1.Text = para_sug[0];
@@ -169,5 +181,15 @@ namespace feature_app
 
         }
 
+        private void cus_checked(object sender, EventArgs e)
+        {
+            if(sug_bt_3.Checked)
+            {
+                cus_setting.Visible = true;
+            }else if(!sug_bt_3.Checked)
+            {
+                cus_setting.Visible = false;
+            }
+        }
     }
 }
