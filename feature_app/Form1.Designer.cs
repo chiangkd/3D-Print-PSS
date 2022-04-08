@@ -31,9 +31,6 @@ namespace feature_app
         {
             this.Title_label = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.ten_sug_text = new System.Windows.Forms.TextBox();
-            this.pcv_sug_text = new System.Windows.Forms.TextBox();
-            this.mu_sug_text = new System.Windows.Forms.TextBox();
             this.ten_label2 = new System.Windows.Forms.Label();
             this.pcv_label2 = new System.Windows.Forms.Label();
             this.mu_label2 = new System.Windows.Forms.Label();
@@ -62,6 +59,10 @@ namespace feature_app
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.process_msg = new System.Windows.Forms.Label();
+            this.mu_sug_text = new System.Windows.Forms.Label();
+            this.pcv_sug_text = new System.Windows.Forms.Label();
+            this.ten_sug_text = new System.Windows.Forms.Label();
             this.tableLayoutPanel3.SuspendLayout();
             this.model_select_group.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -99,33 +100,6 @@ namespace feature_app
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(180, 101);
             this.tableLayoutPanel3.TabIndex = 9;
-            // 
-            // ten_sug_text
-            // 
-            this.ten_sug_text.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ten_sug_text.Location = new System.Drawing.Point(94, 78);
-            this.ten_sug_text.Name = "ten_sug_text";
-            this.ten_sug_text.Size = new System.Drawing.Size(80, 22);
-            this.ten_sug_text.TabIndex = 11;
-            this.ten_sug_text.Text = "0";
-            // 
-            // pcv_sug_text
-            // 
-            this.pcv_sug_text.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pcv_sug_text.Location = new System.Drawing.Point(94, 54);
-            this.pcv_sug_text.Name = "pcv_sug_text";
-            this.pcv_sug_text.Size = new System.Drawing.Size(80, 22);
-            this.pcv_sug_text.TabIndex = 11;
-            this.pcv_sug_text.Text = "0";
-            // 
-            // mu_sug_text
-            // 
-            this.mu_sug_text.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mu_sug_text.Location = new System.Drawing.Point(94, 30);
-            this.mu_sug_text.Name = "mu_sug_text";
-            this.mu_sug_text.Size = new System.Drawing.Size(80, 22);
-            this.mu_sug_text.TabIndex = 11;
-            this.mu_sug_text.Text = "0";
             // 
             // ten_label2
             // 
@@ -462,11 +436,56 @@ namespace feature_app
             this.label8.TabIndex = 24;
             this.label8.Text = "磁導率";
             // 
+            // process_msg
+            // 
+            this.process_msg.AutoSize = true;
+            this.process_msg.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.process_msg.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.process_msg.Location = new System.Drawing.Point(624, 24);
+            this.process_msg.Name = "process_msg";
+            this.process_msg.Size = new System.Drawing.Size(0, 19);
+            this.process_msg.TabIndex = 22;
+            // 
+            // mu_sug_text
+            // 
+            this.mu_sug_text.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mu_sug_text.AutoSize = true;
+            this.mu_sug_text.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mu_sug_text.Location = new System.Drawing.Point(124, 27);
+            this.mu_sug_text.Name = "mu_sug_text";
+            this.mu_sug_text.Size = new System.Drawing.Size(20, 21);
+            this.mu_sug_text.TabIndex = 23;
+            this.mu_sug_text.Text = "0";
+            this.mu_sug_text.Click += new System.EventHandler(this.mu_sug_text_Click);
+            // 
+            // pcv_sug_text
+            // 
+            this.pcv_sug_text.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pcv_sug_text.AutoSize = true;
+            this.pcv_sug_text.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pcv_sug_text.Location = new System.Drawing.Point(124, 51);
+            this.pcv_sug_text.Name = "pcv_sug_text";
+            this.pcv_sug_text.Size = new System.Drawing.Size(20, 21);
+            this.pcv_sug_text.TabIndex = 25;
+            this.pcv_sug_text.Text = "0";
+            // 
+            // ten_sug_text
+            // 
+            this.ten_sug_text.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ten_sug_text.AutoSize = true;
+            this.ten_sug_text.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ten_sug_text.Location = new System.Drawing.Point(124, 75);
+            this.ten_sug_text.Name = "ten_sug_text";
+            this.ten_sug_text.Size = new System.Drawing.Size(20, 22);
+            this.ten_sug_text.TabIndex = 26;
+            this.ten_sug_text.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 266);
+            this.Controls.Add(this.process_msg);
             this.Controls.Add(this.cus_setting);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.oper_label);
@@ -497,9 +516,6 @@ namespace feature_app
 
         private System.Windows.Forms.Label Title_label;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TextBox ten_sug_text;
-        private System.Windows.Forms.TextBox pcv_sug_text;
-        private System.Windows.Forms.TextBox mu_sug_text;
         private System.Windows.Forms.Label ten_label2;
         private System.Windows.Forms.Label pcv_label2;
         private System.Windows.Forms.Label mu_label2;
@@ -528,6 +544,10 @@ namespace feature_app
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label process_msg;
+        private System.Windows.Forms.Label mu_sug_text;
+        private System.Windows.Forms.Label ten_sug_text;
+        private System.Windows.Forms.Label pcv_sug_text;
     }
 }
 

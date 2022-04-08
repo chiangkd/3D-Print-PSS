@@ -128,10 +128,10 @@ i = decomp.do(nF, 1/weights).argmin()   ## BEST index
 
 
 
-data_for_pred = [np.int16(X[2][0]),                ## ox
-                 np.int16(X[2][1]),                ## power
-                 np.int16(X[2][2]),                ## speed
-                 X[2][3].round(decimals=2)]        ## spacing
+data_for_pred = [np.int16(X[i][0]),                ## ox
+                 np.int16(X[i][1]),                ## power
+                 np.int16(X[i][2]),                ## speed
+                 X[i][3].round(decimals=2)]        ## spacing
 
 
 # print(data_for_pred)

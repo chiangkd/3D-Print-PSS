@@ -19,9 +19,8 @@ from pymoo.decomposition.asf import ASF
 ## define problem
 
 input_data = [sys for sys in sys.argv];
-
 class customize(ElementwiseProblem):    # max mu and min Pcv
-    def __init__(self,mode1, mode2, mode3 ,*args, **kwargs):
+    def __init__(self,mode1, mode2, mode3 ,cus_par ,*args, **kwargs):
         super().__init__(n_var=4,
                          n_obj=2,
                          n_constr=0,
@@ -31,9 +30,9 @@ class customize(ElementwiseProblem):    # max mu and min Pcv
         self.mode2 = mode2  # Pcv model selected
         self.mode3 = mode3  # tensile model selected
         # the user input characteristic
-        self.mu = args[0]
-        self.Pcv = args[1]
-        self.tensile = args[2]
+        self.mu = cus_par[0]
+        self.Pcv = cus_par[1]
+        self.tensile = cus_par[2]
         ###############################
     def _evaluate(self,x, out, *args, **kwargs):
         f1 = np.abs(self.mu-np.float64(self.mode1.predict(np.array(x).reshape(1, -1))))   #mu
@@ -42,8 +41,8 @@ class customize(ElementwiseProblem):    # max mu and min Pcv
         out["F"] = [f1, f2, f3]
 
 
-# input data = 
-# ['C:\\Users\\User\\Desktop\\feature_app\\parameter_sug_max_mu_min_pcv.py', '1', '-u']
+# input_data = \
+# ['C:\\Users\\User\\Desktop\\feature_app\\parameter_sug_max_mu_min_pcv.py', '1',200,200,200, '-u']
 
 ## unit test
 # input_data = ['C:\\Users\\User\\Desktop\\feature_app\\parameter_sug_max_mu_min_pcv.py', '1', '-u']
@@ -62,11 +61,10 @@ model_Pcv_input = [model_Pcv_xgb_50,    ## Pcv model
 
 model_tensile_input = model_tensile_xgb # tensile model no relate to frequency
 
-
 problem = customize(mode1=model_mu_input[int(mode)],
                     mode2=model_Pcv_input[int(mode)],
-                    mode3=model_tensile_xgb, args= cus_characteristic)   # input different mode
-
+                    mode3=model_tensile_input,cus_par=cus_characteristic)   # input different mode
+                
 
 ## Initialize an Algorithm
 
@@ -90,7 +88,7 @@ res = minimize(problem,
               seed=1,
               save_history=True,
               verbose=False)    #verbose -> dont show any thing
-F = res.F
+F = res.F  
 X = res.X
 
 ## give parameter to model and caculate the output
@@ -122,7 +120,7 @@ fu = nF.max(axis=0)
 # first objective is less a bit less important than the 
 # second objective by setting the weights to
 
-weights = np.array([0.2, 0.8])
+weights = np.array([0.4, 0.4,0.2])
 
 ## the decomposition method called Augmented Scalarization Function (ASF)
 
@@ -136,10 +134,10 @@ i = decomp.do(nF, 1/weights).argmin()   ## BEST index
 
 
 
-data_for_pred = [np.int16(X[2][0]),                ## ox
-                 np.int16(X[2][1]),                ## power
-                 np.int16(X[2][2]),                ## speed
-                 X[2][3].round(decimals=2)]        ## spacing
+data_for_pred = [np.int16(X[i][0]),                ## ox
+                 np.int16(X[i][1]),                ## power
+                 np.int16(X[i][2]),                ## speed
+                 X[i][3].round(decimals=2)]        ## spacing
 
 
 # print(data_for_pred)
@@ -176,10 +174,10 @@ if(mode == "3"):
 
 
 ########manufacturing parameter suggestion################
-print(np.int16(X[2][0]),                ## ox            #
-      np.int16(X[2][1]),                ## power         #
-      np.int16(X[2][2]),                ## speed         #
-      X[2][3].round(decimals=2))        ## spacing       #
+print(np.int16(X[i][0]),                ## ox            #
+      np.int16(X[i][1]),                ## power         #
+      np.int16(X[i][2]),                ## speed         #
+      X[i][3].round(decimals=2))        ## spacing       #
 ##########################################################
 
 print("mode = ", mode)

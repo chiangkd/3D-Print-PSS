@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-
 namespace feature_app
 {
     
@@ -20,6 +19,7 @@ namespace feature_app
         string[] output = new string[10] {"x","x","x","x","x","x","x","x","x","x"};   // the prediction output from python
         string[] charateristic = new string[3] { "0", "0", "0" };
         string[] para_sug = new string[6] { "0", "0", "0", "0", "0", "0" };  // parameter suggesion
+        int retNum;
         public Form1()
         {
             InitializeComponent();
@@ -115,6 +115,14 @@ namespace feature_app
 
         private void sug_bt_Click(object sender, EventArgs e)
         {
+            Console.WriteLine(freq_combobox.SelectedIndex);
+            if (freq_combobox.SelectedIndex == -1)
+            {
+                Console.WriteLine("error!");
+                MessageBox.Show("Please select the operation frequency.");
+                return;
+            }
+            
             string[] strArr = new string[5];//引數列表
             string[] AI_pred = new string[3];   // prediction by AI from the NSGA-II parameter
             switch (freq_combobox.Text)
@@ -151,14 +159,20 @@ namespace feature_app
                 sArguments = @"parameter_sug_max_mu_max_tensile.py";
             }else if (sug_bt_3.Checked) // user customize
             {
-                Console.WriteLine("Customize %s %s %s \n", cus_mu.Text, cus_Pcv.Text, cus_tensile.Text);
+                
+                if(!Int32.TryParse(cus_mu.Text,out retNum) || !Int32.TryParse(cus_Pcv.Text, out retNum) || !Int32.TryParse(cus_tensile.Text, out retNum)
+                    || Int32.Parse(cus_mu.Text) <= 0 || Int32.Parse(cus_Pcv.Text) <= 0 || Int32.Parse(cus_tensile.Text) <= 0)
+                {
+                    MessageBox.Show("All customized characteristic should be postive number.");
+                    return;
+                }
                 sArguments = @"parameter_sug_customize.py";
                 strArr[1] = cus_mu.Text;
                 strArr[2] = cus_Pcv.Text;
                 strArr[3] = cus_tensile.Text;
             }
 
-
+            process_msg.Text = "Processing...";
 
             RunPythonScript(sArguments, "-u", strArr);
             // split output and stored in an array for show
@@ -177,6 +191,7 @@ namespace feature_app
             sug_label_3.Text = para_sug[2];
             sug_label_4.Text = para_sug[3];
             // sug_label_5.Text = para_sug[4];
+            process_msg.Text = "Done";
 
 
         }
@@ -190,6 +205,11 @@ namespace feature_app
             {
                 cus_setting.Visible = false;
             }
+        }
+
+        private void mu_sug_text_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -36,7 +36,7 @@ class max_mu_max_tensile(ElementwiseProblem):    # max mu and min Pcv
         out["F"] = [f1, f2]
 
 
-# input data = 
+# input_data = \
 # ['C:\\Users\\User\\Desktop\\feature_app\\parameter_sug_max_mu_min_pcv.py', '1', '-u']
 
 ## unit test
@@ -110,7 +110,7 @@ fu = nF.max(axis=0)
 # first objective is less a bit less important than the 
 # second objective by setting the weights to
 
-weights = np.array([0.2, 0.8])
+weights = np.array([0.7, 0.3])
 
 ## the decomposition method called Augmented Scalarization Function (ASF)
 
@@ -124,10 +124,10 @@ i = decomp.do(nF, 1/weights).argmin()   ## BEST index
 
 
 
-data_for_pred = [np.int16(X[2][0]),                ## ox
-                 np.int16(X[2][1]),                ## power
-                 np.int16(X[2][2]),                ## speed
-                 X[2][3].round(decimals=2)]        ## spacing
+data_for_pred = [np.int16(X[i][0]),                ## ox
+                 np.int16(X[i][1]),                ## power
+                 np.int16(X[i][2]),                ## speed
+                 X[i][3].round(decimals=2)]        ## spacing
 
 
 # print(data_for_pred)
