@@ -18,7 +18,7 @@ from pymoo.decomposition.asf import ASF
 
 ## define problem
 
-input_data = [sys for sys in sys.argv];
+input_data = [sys for sys in sys.argv]
 
 class max_mu_max_tensile(ElementwiseProblem):    # max mu and min Pcv
     def __init__(self,mode1, mode2 ,*args, **kwargs):
@@ -110,7 +110,7 @@ fu = nF.max(axis=0)
 # first objective is less a bit less important than the 
 # second objective by setting the weights to
 
-weights = np.array([0.7, 0.3])
+weights = np.array([0.2, 0.8])
 
 ## the decomposition method called Augmented Scalarization Function (ASF)
 
@@ -164,10 +164,10 @@ if(mode == "3"):
 
 
 ########manufacturing parameter suggestion################
-print(np.int16(X[2][0]),                ## ox            #
-      np.int16(X[2][1]),                ## power         #
-      np.int16(X[2][2]),                ## speed         #
-      X[2][3].round(decimals=2))        ## spacing       #
+print(np.int16(X[i][0]),                ## ox            #
+      np.int16(X[i][1]),                ## power         #
+      np.int16(X[i][2]),                ## speed         #
+      X[i][3].round(decimals=2))        ## spacing       #
 ##########################################################
 
 print("mode = ", mode)

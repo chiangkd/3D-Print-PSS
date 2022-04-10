@@ -18,7 +18,7 @@ from pymoo.decomposition.asf import ASF
 
 ## define problem
 
-input_data = [sys for sys in sys.argv];
+input_data = [sys for sys in sys.argv]
 class customize(ElementwiseProblem):    # max mu and min Pcv
     def __init__(self,mode1, mode2, mode3 ,cus_par ,*args, **kwargs):
         super().__init__(n_var=4,

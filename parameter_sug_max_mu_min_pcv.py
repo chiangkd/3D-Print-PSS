@@ -18,7 +18,7 @@ from pymoo.decomposition.asf import ASF
 
 ## define problem
 
-input_data = [sys for sys in sys.argv];
+input_data = [sys for sys in sys.argv]
 
 class max_mu_min_pcv(ElementwiseProblem):    # max mu and min Pcv
     def __init__(self,mode1, mode2 ,*args, **kwargs):
@@ -168,10 +168,10 @@ if(mode == "3"):
 
 
 ########manufacturing parameter suggestion################
-print(np.int16(X[2][0]),                ## ox            #
-      np.int16(X[2][1]),                ## power         #
-      np.int16(X[2][2]),                ## speed         #
-      X[2][3].round(decimals=2))        ## spacing       #
+print(np.int16(X[i][0]),                ## ox            #
+      np.int16(X[i][1]),                ## power         #
+      np.int16(X[i][2]),                ## speed         #
+      X[i][3].round(decimals=2))        ## spacing       #
 ##########################################################
 
 print("Parameter suggestion finish!!- mmmp")
