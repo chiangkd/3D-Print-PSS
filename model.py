@@ -1,3 +1,7 @@
+# @file    model.py
+# @author  Kuan-Di Jiang
+# @brief   loading AI model (abandom file)
+
 import xgboost as xgb
 import numpy as np
 import os

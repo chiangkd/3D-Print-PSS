@@ -1,3 +1,7 @@
+# @file    model_old_old.py
+# @author  Kuan-Di Jiang
+# @brief   abandom file
+
 from pickle import NONE
 import xgboost as xgb
 import numpy as np

@@ -1,4 +1,12 @@
-﻿using System;
+﻿/**
+ ******************************************************************************
+ * @file    Form1.cs
+ * @author  Kuan-Di Jiang
+ * @brief   User interface
+ ******************************************************************************
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
