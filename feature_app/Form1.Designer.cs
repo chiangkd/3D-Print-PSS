@@ -29,8 +29,12 @@ namespace feature_app
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Title_label = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.ten_sug_text = new System.Windows.Forms.Label();
+            this.pcv_sug_text = new System.Windows.Forms.Label();
+            this.mu_sug_text = new System.Windows.Forms.Label();
             this.ten_label2 = new System.Windows.Forms.Label();
             this.pcv_label2 = new System.Windows.Forms.Label();
             this.mu_label2 = new System.Windows.Forms.Label();
@@ -60,9 +64,8 @@ namespace feature_app
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.process_msg = new System.Windows.Forms.Label();
-            this.mu_sug_text = new System.Windows.Forms.Label();
-            this.pcv_sug_text = new System.Windows.Forms.Label();
-            this.ten_sug_text = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Range_bt = new System.Windows.Forms.Button();
             this.tableLayoutPanel3.SuspendLayout();
             this.model_select_group.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -83,52 +86,86 @@ namespace feature_app
             // 
             this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
             this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.31707F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.68293F));
             this.tableLayoutPanel3.Controls.Add(this.ten_sug_text, 1, 3);
             this.tableLayoutPanel3.Controls.Add(this.pcv_sug_text, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.mu_sug_text, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.ten_label2, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.pcv_label2, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.mu_label2, 0, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(601, 132);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(648, 131);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(180, 101);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(249, 101);
             this.tableLayoutPanel3.TabIndex = 9;
+            // 
+            // ten_sug_text
+            // 
+            this.ten_sug_text.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ten_sug_text.AutoSize = true;
+            this.ten_sug_text.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ten_sug_text.Location = new System.Drawing.Point(184, 75);
+            this.ten_sug_text.Name = "ten_sug_text";
+            this.ten_sug_text.Size = new System.Drawing.Size(20, 22);
+            this.ten_sug_text.TabIndex = 26;
+            this.ten_sug_text.Text = "0";
+            // 
+            // pcv_sug_text
+            // 
+            this.pcv_sug_text.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pcv_sug_text.AutoSize = true;
+            this.pcv_sug_text.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pcv_sug_text.Location = new System.Drawing.Point(184, 51);
+            this.pcv_sug_text.Name = "pcv_sug_text";
+            this.pcv_sug_text.Size = new System.Drawing.Size(20, 21);
+            this.pcv_sug_text.TabIndex = 25;
+            this.pcv_sug_text.Text = "0";
+            // 
+            // mu_sug_text
+            // 
+            this.mu_sug_text.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mu_sug_text.AutoSize = true;
+            this.mu_sug_text.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mu_sug_text.Location = new System.Drawing.Point(184, 27);
+            this.mu_sug_text.Name = "mu_sug_text";
+            this.mu_sug_text.Size = new System.Drawing.Size(20, 21);
+            this.mu_sug_text.TabIndex = 23;
+            this.mu_sug_text.Text = "0";
+            this.mu_sug_text.Click += new System.EventHandler(this.mu_sug_text_Click);
             // 
             // ten_label2
             // 
             this.ten_label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ten_label2.AutoSize = true;
             this.ten_label2.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ten_label2.Location = new System.Drawing.Point(7, 78);
+            this.ten_label2.Location = new System.Drawing.Point(12, 78);
             this.ten_label2.Name = "ten_label2";
-            this.ten_label2.Size = new System.Drawing.Size(76, 16);
+            this.ten_label2.Size = new System.Drawing.Size(119, 16);
             this.ten_label2.TabIndex = 24;
-            this.ten_label2.Text = "最大拉伸";
+            this.ten_label2.Text = "最大拉伸(MPa)";
             // 
             // pcv_label2
             // 
             this.pcv_label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pcv_label2.AutoSize = true;
             this.pcv_label2.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.pcv_label2.Location = new System.Drawing.Point(24, 53);
+            this.pcv_label2.Location = new System.Drawing.Point(15, 53);
             this.pcv_label2.Name = "pcv_label2";
-            this.pcv_label2.Size = new System.Drawing.Size(42, 16);
+            this.pcv_label2.Size = new System.Drawing.Size(113, 16);
             this.pcv_label2.TabIndex = 24;
-            this.pcv_label2.Text = "鐵損";
+            this.pcv_label2.Text = "鐵損(kW/m^3)";
             // 
             // mu_label2
             // 
             this.mu_label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mu_label2.AutoSize = true;
             this.mu_label2.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.mu_label2.Location = new System.Drawing.Point(16, 29);
+            this.mu_label2.Location = new System.Drawing.Point(42, 29);
             this.mu_label2.Name = "mu_label2";
             this.mu_label2.Size = new System.Drawing.Size(59, 16);
             this.mu_label2.TabIndex = 24;
@@ -196,7 +233,7 @@ namespace feature_app
             // sugStart_bt
             // 
             this.sugStart_bt.Font = new System.Drawing.Font("標楷體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.sugStart_bt.Location = new System.Drawing.Point(601, 56);
+            this.sugStart_bt.Location = new System.Drawing.Point(676, 56);
             this.sugStart_bt.Name = "sugStart_bt";
             this.sugStart_bt.Size = new System.Drawing.Size(143, 44);
             this.sugStart_bt.TabIndex = 15;
@@ -222,12 +259,12 @@ namespace feature_app
             this.tableLayoutPanel4.Controls.Add(this.label5, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.sug_label_1, 0, 1);
             this.tableLayoutPanel4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(19, 143);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(19, 162);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(553, 71);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(623, 71);
             this.tableLayoutPanel4.TabIndex = 16;
             // 
             // sug_label_4
@@ -235,7 +272,7 @@ namespace feature_app
             this.sug_label_4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.sug_label_4.AutoSize = true;
             this.sug_label_4.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.sug_label_4.Location = new System.Drawing.Point(489, 44);
+            this.sug_label_4.Location = new System.Drawing.Point(552, 44);
             this.sug_label_4.Name = "sug_label_4";
             this.sug_label_4.Size = new System.Drawing.Size(17, 16);
             this.sug_label_4.TabIndex = 9;
@@ -246,7 +283,7 @@ namespace feature_app
             this.sug_label_3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.sug_label_3.AutoSize = true;
             this.sug_label_3.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.sug_label_3.Location = new System.Drawing.Point(344, 44);
+            this.sug_label_3.Location = new System.Drawing.Point(388, 44);
             this.sug_label_3.Name = "sug_label_3";
             this.sug_label_3.Size = new System.Drawing.Size(17, 16);
             this.sug_label_3.TabIndex = 8;
@@ -257,7 +294,7 @@ namespace feature_app
             this.sug_label_2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.sug_label_2.AutoSize = true;
             this.sug_label_2.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.sug_label_2.Location = new System.Drawing.Point(183, 44);
+            this.sug_label_2.Location = new System.Drawing.Point(207, 44);
             this.sug_label_2.Name = "sug_label_2";
             this.sug_label_2.Size = new System.Drawing.Size(17, 16);
             this.sug_label_2.TabIndex = 7;
@@ -268,51 +305,51 @@ namespace feature_app
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(27, 9);
+            this.label1.Location = new System.Drawing.Point(9, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 19);
+            this.label1.Size = new System.Drawing.Size(119, 19);
             this.label1.TabIndex = 1;
-            this.label1.Text = "氧濃度";
+            this.label1.Text = "氧濃度(ppm)";
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(147, 9);
+            this.label3.Location = new System.Drawing.Point(156, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 19);
+            this.label3.Size = new System.Drawing.Size(119, 19);
             this.label3.TabIndex = 2;
-            this.label3.Text = "雷射功率";
+            this.label3.Text = "雷射功率(W)";
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label4.Location = new System.Drawing.Point(463, 9);
+            this.label4.Location = new System.Drawing.Point(506, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 19);
+            this.label4.Size = new System.Drawing.Size(109, 19);
             this.label4.TabIndex = 4;
-            this.label4.Text = "線間距";
+            this.label4.Text = "線間距(mm)";
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label5.Location = new System.Drawing.Point(288, 9);
+            this.label5.Location = new System.Drawing.Point(302, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(129, 19);
+            this.label5.Size = new System.Drawing.Size(189, 19);
             this.label5.TabIndex = 3;
-            this.label5.Text = "雷射掃描速度";
+            this.label5.Text = "雷射掃描速度(mm/s)";
             // 
             // sug_label_1
             // 
             this.sug_label_1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.sug_label_1.AutoSize = true;
             this.sug_label_1.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.sug_label_1.Location = new System.Drawing.Point(53, 44);
+            this.sug_label_1.Location = new System.Drawing.Point(60, 44);
             this.sug_label_1.Name = "sug_label_1";
             this.sug_label_1.Size = new System.Drawing.Size(17, 16);
             this.sug_label_1.TabIndex = 6;
@@ -347,7 +384,7 @@ namespace feature_app
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("標楷體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(597, 107);
+            this.label2.Location = new System.Drawing.Point(672, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 21);
             this.label2.TabIndex = 20;
@@ -365,42 +402,42 @@ namespace feature_app
             this.cus_setting.Controls.Add(this.label6, 0, 2);
             this.cus_setting.Controls.Add(this.label7, 0, 1);
             this.cus_setting.Controls.Add(this.label8, 0, 0);
-            this.cus_setting.Location = new System.Drawing.Point(431, 52);
+            this.cus_setting.Location = new System.Drawing.Point(431, 75);
             this.cus_setting.Name = "cus_setting";
             this.cus_setting.RowCount = 3;
             this.cus_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.cus_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.cus_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.cus_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cus_setting.Size = new System.Drawing.Size(160, 80);
+            this.cus_setting.Size = new System.Drawing.Size(203, 80);
             this.cus_setting.TabIndex = 21;
             this.cus_setting.Visible = false;
             // 
             // cus_tensile
             // 
             this.cus_tensile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cus_tensile.Location = new System.Drawing.Point(109, 56);
+            this.cus_tensile.Location = new System.Drawing.Point(144, 56);
             this.cus_tensile.Name = "cus_tensile";
             this.cus_tensile.Size = new System.Drawing.Size(45, 22);
-            this.cus_tensile.TabIndex = 11;
+            this.cus_tensile.TabIndex = 3;
             this.cus_tensile.Text = "0";
             // 
             // cus_Pcv
             // 
             this.cus_Pcv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cus_Pcv.Location = new System.Drawing.Point(109, 31);
+            this.cus_Pcv.Location = new System.Drawing.Point(144, 31);
             this.cus_Pcv.Name = "cus_Pcv";
             this.cus_Pcv.Size = new System.Drawing.Size(45, 22);
-            this.cus_Pcv.TabIndex = 11;
+            this.cus_Pcv.TabIndex = 2;
             this.cus_Pcv.Text = "0";
             // 
             // cus_mu
             // 
             this.cus_mu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cus_mu.Location = new System.Drawing.Point(109, 6);
+            this.cus_mu.Location = new System.Drawing.Point(144, 6);
             this.cus_mu.Name = "cus_mu";
             this.cus_mu.Size = new System.Drawing.Size(45, 22);
-            this.cus_mu.TabIndex = 11;
+            this.cus_mu.TabIndex = 1;
             this.cus_mu.Text = "0";
             // 
             // label6
@@ -408,29 +445,29 @@ namespace feature_app
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label6.Location = new System.Drawing.Point(15, 57);
+            this.label6.Location = new System.Drawing.Point(13, 57);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 16);
+            this.label6.Size = new System.Drawing.Size(107, 16);
             this.label6.TabIndex = 24;
-            this.label6.Text = "最大拉伸";
+            this.label6.Text = "最大拉伸MPa";
             // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label7.Location = new System.Drawing.Point(32, 31);
+            this.label7.Location = new System.Drawing.Point(10, 31);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 16);
+            this.label7.Size = new System.Drawing.Size(113, 16);
             this.label7.TabIndex = 24;
-            this.label7.Text = "鐵損";
+            this.label7.Text = "鐵損(kW/m^3)";
             // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label8.Location = new System.Drawing.Point(23, 6);
+            this.label8.Location = new System.Drawing.Point(37, 6);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 16);
             this.label8.TabIndex = 24;
@@ -441,50 +478,39 @@ namespace feature_app
             this.process_msg.AutoSize = true;
             this.process_msg.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.process_msg.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.process_msg.Location = new System.Drawing.Point(624, 24);
+            this.process_msg.Location = new System.Drawing.Point(699, 24);
             this.process_msg.Name = "process_msg";
             this.process_msg.Size = new System.Drawing.Size(0, 19);
             this.process_msg.TabIndex = 22;
             // 
-            // mu_sug_text
+            // label9
             // 
-            this.mu_sug_text.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mu_sug_text.AutoSize = true;
-            this.mu_sug_text.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mu_sug_text.Location = new System.Drawing.Point(124, 27);
-            this.mu_sug_text.Name = "mu_sug_text";
-            this.mu_sug_text.Size = new System.Drawing.Size(20, 21);
-            this.mu_sug_text.TabIndex = 23;
-            this.mu_sug_text.Text = "0";
-            this.mu_sug_text.Click += new System.EventHandler(this.mu_sug_text_Click);
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label9.Location = new System.Drawing.Point(330, 55);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(28, 16);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Hz";
             // 
-            // pcv_sug_text
+            // Range_bt
             // 
-            this.pcv_sug_text.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pcv_sug_text.AutoSize = true;
-            this.pcv_sug_text.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pcv_sug_text.Location = new System.Drawing.Point(124, 51);
-            this.pcv_sug_text.Name = "pcv_sug_text";
-            this.pcv_sug_text.Size = new System.Drawing.Size(20, 21);
-            this.pcv_sug_text.TabIndex = 25;
-            this.pcv_sug_text.Text = "0";
-            // 
-            // ten_sug_text
-            // 
-            this.ten_sug_text.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ten_sug_text.AutoSize = true;
-            this.ten_sug_text.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ten_sug_text.Location = new System.Drawing.Point(124, 75);
-            this.ten_sug_text.Name = "ten_sug_text";
-            this.ten_sug_text.Size = new System.Drawing.Size(20, 22);
-            this.ten_sug_text.TabIndex = 26;
-            this.ten_sug_text.Text = "0";
+            this.Range_bt.Image = ((System.Drawing.Image)(resources.GetObject("Range_bt.Image")));
+            this.Range_bt.Location = new System.Drawing.Point(589, 48);
+            this.Range_bt.Name = "Range_bt";
+            this.Range_bt.Size = new System.Drawing.Size(31, 26);
+            this.Range_bt.TabIndex = 24;
+            this.Range_bt.UseVisualStyleBackColor = true;
+            this.Range_bt.Visible = false;
+            this.Range_bt.Click += new System.EventHandler(this.Range_bt_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 266);
+            this.ClientSize = new System.Drawing.Size(913, 307);
+            this.Controls.Add(this.Range_bt);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.process_msg);
             this.Controls.Add(this.cus_setting);
             this.Controls.Add(this.label2);
@@ -548,6 +574,8 @@ namespace feature_app
         private System.Windows.Forms.Label mu_sug_text;
         private System.Windows.Forms.Label ten_sug_text;
         private System.Windows.Forms.Label pcv_sug_text;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button Range_bt;
     }
 }
 

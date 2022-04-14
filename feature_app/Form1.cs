@@ -28,6 +28,7 @@ namespace feature_app
         string[] charateristic = new string[3] { "0", "0", "0" };
         string[] para_sug = new string[6] { "0", "0", "0", "0", "0", "0" };  // parameter suggesion
         int retNum;
+        PR pr = new PR();
         public Form1()
         {
             InitializeComponent();
@@ -72,14 +73,14 @@ namespace feature_app
             count = 0; // initialize
             Process p = new Process();
             string path = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + sArgName;// 獲得python檔案的絕對路徑（將檔案放在c#的debug資料夾中可以這樣操作）
-            path = @"C:\Users\chiangkd\Desktop\Parameter-Suggestion-System\" + sArgName;//(因為我沒放debug下，所以直接寫的絕對路徑,替換掉上面的路徑了)
+            path = @"C:\Users\User\Desktop\feature_app\" + sArgName;//(因為我沒放debug下，所以直接寫的絕對路徑,替換掉上面的路徑了)
             p.StartInfo.FileName = @"python.exe";//沒有配環境變數的話，可以像我這樣寫python.exe的絕對路徑。如果配了，直接寫"python.exe"即可
             string sArguments = path;
             foreach (string sigstr in teps)
             {
                 sArguments += " " + sigstr;//傳遞引數
             }
-
+            
             sArguments += " " + args;
 
             p.StartInfo.Arguments = sArguments;
@@ -168,12 +169,70 @@ namespace feature_app
             }else if (sug_bt_3.Checked) // user customize
             {
                 
-                if(!Int32.TryParse(cus_mu.Text,out retNum) || !Int32.TryParse(cus_Pcv.Text, out retNum) || !Int32.TryParse(cus_tensile.Text, out retNum)
-                    || Int32.Parse(cus_mu.Text) <= 0 || Int32.Parse(cus_Pcv.Text) <= 0 || Int32.Parse(cus_tensile.Text) <= 0)
+                if(!Int32.TryParse(cus_mu.Text,out retNum) ||
+                   !Int32.TryParse(cus_Pcv.Text, out retNum) ||
+                   !Int32.TryParse(cus_tensile.Text, out retNum))
                 {
                     MessageBox.Show("All customized characteristic should be postive number.");
                     return;
                 }
+
+                switch (freq_combobox.Text)
+                {
+                    case "50":
+                        if (Int32.Parse(cus_mu.Text) < Int32.Parse(pr.mu_min_50.Text) ||   // less than min
+                            Int32.Parse(cus_mu.Text) > Int32.Parse(pr.mu_max_50.Text) ||  // bigger than max
+                            Int32.Parse(cus_Pcv.Text) < Int32.Parse(pr.pcv_min_50.Text) ||
+                            Int32.Parse(cus_Pcv.Text) > Int32.Parse(pr.pcv_max_50.Text) ||
+                            Int32.Parse(cus_tensile.Text) < Int32.Parse(pr.tensile_min_50.Text) ||
+                            Int32.Parse(cus_tensile.Text) > Int32.Parse(pr.tensile_max_50.Text))
+                        {
+                            MessageBox.Show("All customized characteristic should between the range of the suggestion.");
+                            return;
+                        }
+
+                        break;
+                    case "200":
+                        if (Int32.Parse(cus_mu.Text) < Int32.Parse(pr.mu_min_200.Text) ||   // less than min
+                            Int32.Parse(cus_mu.Text) > Int32.Parse(pr.mu_max_200.Text) ||  // bigger than max
+                            Int32.Parse(cus_Pcv.Text) < Int32.Parse(pr.pcv_min_200.Text) ||
+                            Int32.Parse(cus_Pcv.Text) > Int32.Parse(pr.pcv_max_200.Text) ||
+                            Int32.Parse(cus_tensile.Text) < Int32.Parse(pr.tensile_min_200.Text) ||
+                            Int32.Parse(cus_tensile.Text) > Int32.Parse(pr.tensile_max_200.Text))
+                        {
+                            MessageBox.Show("All customized characteristic should between the range of the suggestion.");
+                            return;
+                        }
+                        break;
+                    case "400":
+                        if (Int32.Parse(cus_mu.Text) < Int32.Parse(pr.mu_min_400.Text) ||   // less than min
+                            Int32.Parse(cus_mu.Text) > Int32.Parse(pr.mu_max_400.Text) ||  // bigger than max
+                            Int32.Parse(cus_Pcv.Text) < Int32.Parse(pr.pcv_min_400.Text) ||
+                            Int32.Parse(cus_Pcv.Text) > Int32.Parse(pr.pcv_max_400.Text) ||
+                            Int32.Parse(cus_tensile.Text) < Int32.Parse(pr.tensile_min_400.Text) ||
+                            Int32.Parse(cus_tensile.Text) > Int32.Parse(pr.tensile_max_400.Text))
+                        {
+                            MessageBox.Show("All customized characteristic should between the range of the suggestion.");
+                            return;
+                        }
+                        break;
+                    case "800":
+                        if (Int32.Parse(cus_mu.Text) < Int32.Parse(pr.mu_min_800.Text) ||   // less than min
+                            Int32.Parse(cus_mu.Text) > Int32.Parse(pr.mu_max_800.Text) ||  // bigger than max
+                            Int32.Parse(cus_Pcv.Text) < Int32.Parse(pr.pcv_min_800.Text) ||
+                            Int32.Parse(cus_Pcv.Text) > Int32.Parse(pr.pcv_max_800.Text) ||
+                            Int32.Parse(cus_tensile.Text) < Int32.Parse(pr.tensile_min_800.Text) ||
+                            Int32.Parse(cus_tensile.Text) > Int32.Parse(pr.tensile_max_800.Text))
+                        {
+                            MessageBox.Show("All customized characteristic should between the range of the suggestion.");
+                            return;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+
                 sArguments = @"parameter_sug_customize.py";
                 strArr[1] = cus_mu.Text;
                 strArr[2] = cus_Pcv.Text;
@@ -209,15 +268,22 @@ namespace feature_app
             if(sug_bt_3.Checked)
             {
                 cus_setting.Visible = true;
+                Range_bt.Visible = true;
             }else if(!sug_bt_3.Checked)
             {
                 cus_setting.Visible = false;
+                Range_bt.Visible = false;
             }
         }
 
         private void mu_sug_text_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Range_bt_Click(object sender, EventArgs e)
+        {
+            pr.Visible = true;
         }
     }
 }

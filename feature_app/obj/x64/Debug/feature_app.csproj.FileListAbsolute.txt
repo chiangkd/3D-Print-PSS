@@ -55,3 +55,4 @@ C:\Users\chiangkd\Desktop\Parameter-Suggestion-System\feature_app\obj\x64\Debug\
 C:\Users\chiangkd\Desktop\Parameter-Suggestion-System\feature_app\obj\x64\Debug\feature_app.csproj.CopyComplete
 C:\Users\chiangkd\Desktop\Parameter-Suggestion-System\feature_app\obj\x64\Debug\feature_app.exe
 C:\Users\chiangkd\Desktop\Parameter-Suggestion-System\feature_app\obj\x64\Debug\feature_app.pdb
+C:\Users\User\Desktop\feature_app\feature_app\obj\x64\Debug\feature_app.PR.resources
