@@ -828,6 +828,7 @@ namespace feature_app
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PR";
             this.Text = "PR";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.form_closing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

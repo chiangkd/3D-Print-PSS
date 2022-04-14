@@ -28,5 +28,11 @@ namespace feature_app
         {
             this.Visible = false;
         }
+
+        private void form_closing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Visible = false;
+        }
     }
 }
