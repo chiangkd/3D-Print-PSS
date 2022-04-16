@@ -32,6 +32,8 @@ namespace feature_app
         public Form1()
         {
             InitializeComponent();
+            label7.Text = "鐵損(kW/m³)";
+            pcv_label2.Text = "鐵損(kW/m³)";
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)

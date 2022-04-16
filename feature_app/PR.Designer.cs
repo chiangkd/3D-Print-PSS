@@ -31,18 +31,18 @@ namespace feature_app
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.tensile_max_50 = new System.Windows.Forms.Label();
+            this.pcv_max_50 = new System.Windows.Forms.Label();
+            this.mu_max_50 = new System.Windows.Forms.Label();
+            this.tensile_min_50 = new System.Windows.Forms.Label();
+            this.pcv_min_50 = new System.Windows.Forms.Label();
+            this.mu_min_50 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.mu_min_50 = new System.Windows.Forms.Label();
-            this.pcv_min_50 = new System.Windows.Forms.Label();
-            this.tensile_min_50 = new System.Windows.Forms.Label();
-            this.mu_max_50 = new System.Windows.Forms.Label();
-            this.pcv_max_50 = new System.Windows.Forms.Label();
-            this.tensile_max_50 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tensile_max_200 = new System.Windows.Forms.Label();
@@ -108,7 +108,7 @@ namespace feature_app
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 97F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(719, 100);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -141,38 +141,71 @@ namespace feature_app
             this.tableLayoutPanel2.Size = new System.Drawing.Size(557, 88);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // label1
+            // tensile_max_50
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(48, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 21);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "50Hz";
+            this.tensile_max_50.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tensile_max_50.AutoSize = true;
+            this.tensile_max_50.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.tensile_max_50.Location = new System.Drawing.Point(468, 64);
+            this.tensile_max_50.Name = "tensile_max_50";
+            this.tensile_max_50.Size = new System.Drawing.Size(35, 16);
+            this.tensile_max_50.TabIndex = 12;
+            this.tensile_max_50.Text = "700";
             // 
-            // label3
+            // pcv_max_50
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(178, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 16);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "磁導率";
+            this.pcv_max_50.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pcv_max_50.AutoSize = true;
+            this.pcv_max_50.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.pcv_max_50.Location = new System.Drawing.Point(333, 64);
+            this.pcv_max_50.Name = "pcv_max_50";
+            this.pcv_max_50.Size = new System.Drawing.Size(26, 16);
+            this.pcv_max_50.TabIndex = 11;
+            this.pcv_max_50.Text = "70";
             // 
-            // label4
+            // mu_max_50
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label4.Location = new System.Drawing.Point(289, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 16);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "鐵損(kW/m^3)";
+            this.mu_max_50.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mu_max_50.AutoSize = true;
+            this.mu_max_50.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.mu_max_50.Location = new System.Drawing.Point(190, 64);
+            this.mu_max_50.Name = "mu_max_50";
+            this.mu_max_50.Size = new System.Drawing.Size(35, 16);
+            this.mu_max_50.TabIndex = 10;
+            this.mu_max_50.Text = "550";
+            // 
+            // tensile_min_50
+            // 
+            this.tensile_min_50.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tensile_min_50.AutoSize = true;
+            this.tensile_min_50.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.tensile_min_50.Location = new System.Drawing.Point(468, 35);
+            this.tensile_min_50.Name = "tensile_min_50";
+            this.tensile_min_50.Size = new System.Drawing.Size(35, 16);
+            this.tensile_min_50.TabIndex = 9;
+            this.tensile_min_50.Text = "200";
+            // 
+            // pcv_min_50
+            // 
+            this.pcv_min_50.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pcv_min_50.AutoSize = true;
+            this.pcv_min_50.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.pcv_min_50.Location = new System.Drawing.Point(333, 35);
+            this.pcv_min_50.Name = "pcv_min_50";
+            this.pcv_min_50.Size = new System.Drawing.Size(26, 16);
+            this.pcv_min_50.TabIndex = 8;
+            this.pcv_min_50.Text = "15";
+            // 
+            // mu_min_50
+            // 
+            this.mu_min_50.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mu_min_50.AutoSize = true;
+            this.mu_min_50.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.mu_min_50.Location = new System.Drawing.Point(190, 35);
+            this.mu_min_50.Name = "mu_min_50";
+            this.mu_min_50.Size = new System.Drawing.Size(35, 16);
+            this.mu_min_50.TabIndex = 7;
+            this.mu_min_50.Text = "300";
             // 
             // label5
             // 
@@ -184,6 +217,28 @@ namespace feature_app
             this.label5.Size = new System.Drawing.Size(119, 16);
             this.label5.TabIndex = 3;
             this.label5.Text = "最大拉伸(MPa)";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label4.Location = new System.Drawing.Point(295, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(102, 16);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "鐵損(kW/m³)";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.Location = new System.Drawing.Point(178, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 16);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "磁導率";
             // 
             // label2
             // 
@@ -207,71 +262,16 @@ namespace feature_app
             this.label6.TabIndex = 5;
             this.label6.Text = "最大值";
             // 
-            // mu_min_50
+            // label1
             // 
-            this.mu_min_50.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mu_min_50.AutoSize = true;
-            this.mu_min_50.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.mu_min_50.Location = new System.Drawing.Point(190, 35);
-            this.mu_min_50.Name = "mu_min_50";
-            this.mu_min_50.Size = new System.Drawing.Size(35, 16);
-            this.mu_min_50.TabIndex = 7;
-            this.mu_min_50.Text = "300";
-            // 
-            // pcv_min_50
-            // 
-            this.pcv_min_50.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pcv_min_50.AutoSize = true;
-            this.pcv_min_50.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.pcv_min_50.Location = new System.Drawing.Point(333, 35);
-            this.pcv_min_50.Name = "pcv_min_50";
-            this.pcv_min_50.Size = new System.Drawing.Size(26, 16);
-            this.pcv_min_50.TabIndex = 8;
-            this.pcv_min_50.Text = "15";
-            // 
-            // tensile_min_50
-            // 
-            this.tensile_min_50.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tensile_min_50.AutoSize = true;
-            this.tensile_min_50.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tensile_min_50.Location = new System.Drawing.Point(468, 35);
-            this.tensile_min_50.Name = "tensile_min_50";
-            this.tensile_min_50.Size = new System.Drawing.Size(35, 16);
-            this.tensile_min_50.TabIndex = 9;
-            this.tensile_min_50.Text = "200";
-            // 
-            // mu_max_50
-            // 
-            this.mu_max_50.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mu_max_50.AutoSize = true;
-            this.mu_max_50.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.mu_max_50.Location = new System.Drawing.Point(190, 64);
-            this.mu_max_50.Name = "mu_max_50";
-            this.mu_max_50.Size = new System.Drawing.Size(35, 16);
-            this.mu_max_50.TabIndex = 10;
-            this.mu_max_50.Text = "550";
-            // 
-            // pcv_max_50
-            // 
-            this.pcv_max_50.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pcv_max_50.AutoSize = true;
-            this.pcv_max_50.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.pcv_max_50.Location = new System.Drawing.Point(333, 64);
-            this.pcv_max_50.Name = "pcv_max_50";
-            this.pcv_max_50.Size = new System.Drawing.Size(26, 16);
-            this.pcv_max_50.TabIndex = 11;
-            this.pcv_max_50.Text = "70";
-            // 
-            // tensile_max_50
-            // 
-            this.tensile_max_50.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tensile_max_50.AutoSize = true;
-            this.tensile_max_50.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tensile_max_50.Location = new System.Drawing.Point(468, 64);
-            this.tensile_max_50.Name = "tensile_max_50";
-            this.tensile_max_50.Size = new System.Drawing.Size(35, 16);
-            this.tensile_max_50.TabIndex = 12;
-            this.tensile_max_50.Text = "700";
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.Location = new System.Drawing.Point(48, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 21);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "50Hz";
             // 
             // tableLayoutPanel3
             // 
@@ -285,7 +285,7 @@ namespace feature_app
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 97F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(719, 100);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
@@ -400,11 +400,11 @@ namespace feature_app
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label20.Location = new System.Drawing.Point(289, 7);
+            this.label20.Location = new System.Drawing.Point(295, 7);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(113, 16);
+            this.label20.Size = new System.Drawing.Size(102, 16);
             this.label20.TabIndex = 2;
-            this.label20.Text = "鐵損(kW/m^3)";
+            this.label20.Text = "鐵損(kW/m³)";
             // 
             // label21
             // 
@@ -462,7 +462,7 @@ namespace feature_app
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 97F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(719, 100);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
@@ -577,11 +577,11 @@ namespace feature_app
             this.label32.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label32.Location = new System.Drawing.Point(289, 7);
+            this.label32.Location = new System.Drawing.Point(295, 7);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(113, 16);
+            this.label32.Size = new System.Drawing.Size(102, 16);
             this.label32.TabIndex = 2;
-            this.label32.Text = "鐵損(kW/m^3)";
+            this.label32.Text = "鐵損(kW/m³)";
             // 
             // label33
             // 
@@ -639,7 +639,7 @@ namespace feature_app
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 97F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(719, 100);
             this.tableLayoutPanel7.TabIndex = 3;
             // 
@@ -754,11 +754,11 @@ namespace feature_app
             this.label44.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label44.Location = new System.Drawing.Point(289, 7);
+            this.label44.Location = new System.Drawing.Point(295, 7);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(113, 16);
+            this.label44.Size = new System.Drawing.Size(102, 16);
             this.label44.TabIndex = 2;
-            this.label44.Text = "鐵損(kW/m^3)";
+            this.label44.Text = "鐵損(kW/m³)";
             // 
             // label45
             // 

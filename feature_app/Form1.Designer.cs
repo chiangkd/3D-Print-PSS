@@ -154,11 +154,11 @@ namespace feature_app
             this.pcv_label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pcv_label2.AutoSize = true;
             this.pcv_label2.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.pcv_label2.Location = new System.Drawing.Point(15, 53);
+            this.pcv_label2.Location = new System.Drawing.Point(20, 53);
             this.pcv_label2.Name = "pcv_label2";
-            this.pcv_label2.Size = new System.Drawing.Size(113, 16);
+            this.pcv_label2.Size = new System.Drawing.Size(102, 16);
             this.pcv_label2.TabIndex = 24;
-            this.pcv_label2.Text = "鐵損(kW/m^3)";
+            this.pcv_label2.Text = "鐵損(kW/m³)";
             // 
             // mu_label2
             // 
@@ -456,11 +456,11 @@ namespace feature_app
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label7.Location = new System.Drawing.Point(10, 31);
+            this.label7.Location = new System.Drawing.Point(16, 31);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(113, 16);
+            this.label7.Size = new System.Drawing.Size(102, 16);
             this.label7.TabIndex = 24;
-            this.label7.Text = "鐵損(kW/m^3)";
+            this.label7.Text = "鐵損(kW/m³)";
             // 
             // label8
             // 
