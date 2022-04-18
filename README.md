@@ -3,7 +3,7 @@
 - **3D-Print-PSS** (abbrebviation) 
 - [Github](https://github.com/chiangkd/3D-Print-PSS)
 
-**==xgboost== version should be `1.5.1`**
+**xgboost version should be `1.5.1`**
 
 ## Reference
 
