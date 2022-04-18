@@ -3,6 +3,8 @@
 - **3D-Print-PSS** (abbrebviation) 
 - [Github](https://github.com/chiangkd/3D-Print-PSS)
 
+**==xgboost== version should be `1.5.1`**
+
 ## Reference
 
 - [pymoo: Multi-objective Optimization in Python](https://arxiv.org/pdf/2002.04504.pdf)
@@ -164,4 +166,16 @@ multiobjective optimization](https://reader.elsevier.com/reader/sd/pii/S03050548
 依據以下規則進行挑選即可獲得多目標的最佳解:
 1. 先比較非凌越層級，**層級越高(Rank數字越小)優先被排序**
 2. 若非凌越層級相同，**優先挑選具有擁擠距離大的優先被排序**
-##
+
+
+### 結論
+
+透過非凌越排序基因演算法，可以有一整到完整的選擇機制進行高效率的雙目標以及多目標排序，與機器學習模型搭配可以達成:
+1.	以機器學習輸入多個特徵收斂至目標值
+2.	以非凌越排序基因演算法根據目標值反向推估輸入特徵
+
+完整搭配流程如圖5所示，可以進行反向的特徵預估。
+
+**圖5**
+
+![](https://i.imgur.com/cMb4M2h.png)
